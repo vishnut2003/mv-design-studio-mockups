@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MV Design Studio — Mockup Gallery</title>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--green:#76C457;--green-dark:#5FA544;--ink:#111;--grey:#6B6B6B;--line:#E6E6E3;--off:#F6F6F4}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--off);line-height:1.6;padding:48px 16px}
+.wrap{max-width:960px;margin:0 auto}
+header{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+header img{height:44px}
+header small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+h1{font-family:'Italiana',serif;font-weight:400;font-size:40px;line-height:1.1;margin-bottom:8px}
+p.lead{color:var(--grey);margin-bottom:36px;max-width:60ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:4px;padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(0,0,0,.06)}
+.card h2{font-family:'Italiana',serif;font-weight:400;font-size:28px}
+.card .meta{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+.badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:#eee;color:#555;align-self:flex-start}
+.badge.draft{background:#f3f3f1;color:#666}
+.badge.review{background:#fff4d6;color:#8a6400}
+.badge.changes{background:#ffe3e3;color:#9b2c2c}
+.badge.approved{background:#EAF6E3;color:var(--green-dark)}
+.card a.open{margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);text-decoration:none;padding-top:12px}
+.card a.open:hover{color:var(--green-dark)}
+footer{margin-top:48px;font-size:12.5px;color:var(--grey);border-top:1px solid var(--line);padding-top:20px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="assets/logo-black.png" alt="MV Design Studio">
+    <small>Design mockups · Web Spider Solutions</small>
+  </header>
+  <h1>Page Mockups</h1>
+  <p class="lead">Design proposals for the MV Design Studio website. Each mockup opens as a standalone page. Status is tracked in STATUS.md.</p>
+  <div class="grid">
+    <div class="card">
+      <span class="badge draft">Draft</span>
+      <h2>Home</h2>
+      <div class="meta">Variant v1 · 30 Oct 2026</div>
+      <p style="font-size:14px;color:var(--grey)">Premium light theme with black feature sections, green accent, Italiana + Inter typography.</p>
+      <a class="open" href="home/v1/index.html">Open mockup →</a>
+    </div>
+  </div>
+  <footer>Prepared by Web Spider Solutions · info@webspidersolutions.com</footer>
+</div>
+</body>
+</html>

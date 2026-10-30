@@ -1,0 +1,14 @@
+Referance Design Website: acad.co.in
+Color theme: Green (#76C457) and black and white (for premium look)
+Company Name: MV Design Studio
+Email: Info@
+Phone Number: +91 98188 86620
+Address: - 
+Working Hours: 24 hours open
+Font: https://fonts.google.com/specimen/Italiana?preview.script=Latn for headings and Inter for others text.
+
+Details:
+
+30 years (1996) Experiance
+200+ Clients
+100% Satisfaction
