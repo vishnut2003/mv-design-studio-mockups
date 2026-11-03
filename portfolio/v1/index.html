@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="../../assets/v1/v1.css">
 <style>
 /* ============ PORTFOLIO PAGE ONLY ============ */
-.feature{position:relative;border-radius:2px;overflow:hidden;color:var(--white)}
+.feature{position:relative;border-radius:2px;overflow:hidden;color:var(--white);display:block}
 .feature .ph{aspect-ratio:21/9}
 .feature .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.8) 100%)}
 .feature .cap{position:absolute;left:clamp(20px,4vw,48px);right:clamp(20px,4vw,48px);bottom:clamp(20px,4vw,48px);z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:32px}
@@ -24,7 +24,6 @@
 .feature .badge{position:absolute;right:clamp(20px,4vw,48px);top:clamp(20px,4vw,48px);z-index:2;background:var(--green);color:var(--black);padding:10px 14px;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;border-radius:2px}
 .folio .ph .tag.year{left:auto;right:14px;background:rgba(0,0,0,.72);color:var(--white)}
 .folio-note{margin-top:40px;text-align:center;font-size:12.5px;color:var(--grey)}
-.empty{display:none;text-align:center;padding:60px 0;color:var(--grey);font-size:15px}
 .quote-band{text-align:center}
 .quote-band .q{font-family:var(--font-head);font-size:110px;line-height:.5;color:var(--green);margin-bottom:34px}
 .quote-band blockquote{font-family:var(--font-head);font-size:clamp(26px,3.2vw,42px);line-height:1.3;max-width:26ch;margin:0 auto 28px;color:var(--ink)}
@@ -48,7 +47,8 @@
       <a href="../../about/v1/index.html" data-page="about">About</a>
       <a href="../../services/v1/index.html" data-page="services">Services</a>
       <a href="../../portfolio/v1/index.html" data-page="portfolio" class="active">Portfolio</a>
-      <a href="../../testimonials/v1/index.html" data-page="testimonials">Testimonials</a>
+      <a href="../../process/v1/index.html" data-page="process">Process</a>
+      <a href="../../blog/v1/index.html" data-page="blog">Blog</a>
       <a href="../../contact/v1/index.html" data-page="contact">Contact</a>
     </nav>
     <div class="nav-cta">
@@ -71,8 +71,9 @@
     <a href="../../about/v1/index.html" data-page="about"><span>02</span>About</a>
     <a href="../../services/v1/index.html" data-page="services"><span>03</span>Services</a>
     <a href="../../portfolio/v1/index.html" data-page="portfolio"><span>04</span>Portfolio</a>
-    <a href="../../testimonials/v1/index.html" data-page="testimonials"><span>05</span>Testimonials</a>
-    <a href="../../contact/v1/index.html" data-page="contact"><span>06</span>Contact</a>
+    <a href="../../process/v1/index.html" data-page="process"><span>05</span>Process</a>
+    <a href="../../blog/v1/index.html" data-page="blog"><span>06</span>Blog</a>
+    <a href="../../contact/v1/index.html" data-page="contact"><span>07</span>Contact</a>
   </nav>
   <a href="../../contact/v1/index.html" class="btn btn-white">Get Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 </aside>
@@ -86,29 +87,29 @@
     <nav class="crumbs" aria-label="Breadcrumb"><a href="../../home/v1/index.html">Home</a><span class="sep">/</span><span class="cur">Portfolio</span></nav>
     <div class="eyebrow">Our Work</div>
     <h1>Selected work, <br><em>1996 to today.</em></h1>
-    <p class="lead">Homes, workplaces and hospitality spaces we have designed and built for our clients. Every project shown here is a placeholder until MV Design Studio shares its own photography.</p>
+    <p class="lead">Architecture, interior and audit projects, filterable by type. Every project shown here is a placeholder until MV Design Studio shares its own photography, plot sizes and years.</p>
   </div>
 </section>
 
 <!-- ============ FEATURED PROJECT ============ -->
 <section class="section" id="featured" style="padding-bottom:0">
   <div class="container">
-    <div class="feature reveal">
+    <a href="../../project/v1/index.html" class="feature reveal">
       <span class="badge">Featured project</span>
-      <div class="ph"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2000&q=80" alt="" onerror="this.remove()"></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=80" alt="" onerror="this.remove()"></div>
       <div class="cap">
         <div>
-          <div class="meta">Residential Interior · Gurugram · 2025</div>
-          <h2>The Verdant Residence</h2>
-          <p>A 4,200 sq ft villa interior in warm oak, stone and muted greens, designed and built by one team over ten months. <em style="font-style:normal;font-size:12px;color:rgba(255,255,255,.55)">(placeholder project)</em></p>
+          <div class="meta">Architecture · Chhatarpur, New Delhi · 2024</div>
+          <h2>Courtyard House</h2>
+          <p>A contemporary farmhouse planned around a central landscaped courtyard. Designed, approved and audited on site by the principal. <em style="font-style:normal;font-size:12px;color:rgba(255,255,255,.55)">(placeholder project)</em></p>
         </div>
         <div class="facts">
-          <div><b>4,200</b>sq ft</div>
-          <div><b>10</b>months</div>
-          <div><b>Turnkey</b>scope</div>
+          <div><b>1,000 sq yd</b>plot</div>
+          <div><b>14</b>months</div>
+          <div><b>G+1</b>scope</div>
         </div>
       </div>
-    </div>
+    </a>
   </div>
 </section>
 
@@ -117,43 +118,41 @@
   <div class="container">
     <div class="sec-head center reveal">
       <div class="eyebrow">All Projects</div>
-      <h2 class="h2">Browse by category</h2>
+      <h2 class="h2">Browse by type</h2>
     </div>
     <div class="filter-bar reveal" role="tablist" aria-label="Filter projects">
       <button type="button" class="is-active" data-filter="all" data-label="All" onclick="filterFolio(this)">All <span class="c">12</span></button>
-      <button type="button" data-filter="residential" data-label="Residential" onclick="filterFolio(this)">Residential <span class="c">3</span></button>
-      <button type="button" data-filter="commercial" data-label="Commercial" onclick="filterFolio(this)">Commercial <span class="c">3</span></button>
-      <button type="button" data-filter="architecture" data-label="Architecture" onclick="filterFolio(this)">Architecture <span class="c">2</span></button>
-      <button type="button" data-filter="turnkey" data-label="Turnkey" onclick="filterFolio(this)">Turnkey <span class="c">2</span></button>
-      <button type="button" data-filter="hospitality" data-label="Hospitality" onclick="filterFolio(this)">Hospitality <span class="c">2</span></button>
+      <button type="button" data-filter="architecture" data-label="Architecture" onclick="filterFolio(this)">Architecture <span class="c">4</span></button>
+      <button type="button" data-filter="interior" data-label="Interior" onclick="filterFolio(this)">Interior <span class="c">4</span></button>
+      <button type="button" data-filter="audit" data-label="Audit" onclick="filterFolio(this)">Audit <span class="c">4</span></button>
     </div>
     <p class="folio-count reveal" id="folioCount" aria-live="polite">Showing all 12 projects</p>
     <div class="folio-grid no-stagger" id="folioGrid">
-      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="residential"><div class="ph"><span class="tag">Residential</span><span class="tag year">2025</span><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Interior</b> • Gurugram</div><h3>The Verdant Residence</h3><p>A 4,200 sq ft villa interior in warm oak, stone and muted greens.</p></a>
-      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="architecture" data-delay="1"><div class="ph"><span class="tag">Architecture</span><span class="tag year">2024</span><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Architecture</b> • Chhatarpur</div><h3>Courtyard House</h3><p>A contemporary farmhouse planned around a central landscaped courtyard.</p></a>
-      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="commercial" data-delay="2"><div class="ph"><span class="tag">Commercial</span><span class="tag year">2024</span><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Workspace</b> • Gurugram</div><h3>Studio Office, Gurugram</h3><p>A light-filled 12,000 sq ft workspace for a growing design-led brand.</p></a>
-      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="residential"><div class="ph"><span class="tag">Residential</span><span class="tag year">2023</span><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Interior</b> • New Delhi</div><h3>Penthouse 21</h3><p>Monochrome luxury with floor-to-ceiling glazing and bespoke joinery.</p></a>
-      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="turnkey" data-delay="1"><div class="ph"><span class="tag">Turnkey</span><span class="tag year">2023</span><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Turnkey</b> • Noida</div><h3>Maple Grove Villa</h3><p>Design-and-build delivery of a two-level family home in ten months.</p></a>
-      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="hospitality" data-delay="2"><div class="ph"><span class="tag">Hospitality</span><span class="tag year">2022</span><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Interior</b> • New Delhi</div><h3>The Lounge, New Delhi</h3><p>An intimate hospitality interior in brass, velvet and green marble.</p></a>
-      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="residential"><div class="ph"><span class="tag">Residential</span><span class="tag year">2022</span><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Interior</b> • Gurugram</div><h3>Lakeview Apartment</h3><p>A compact three-bedroom apartment opened up around a single long view.</p></a>
-      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="commercial" data-delay="1"><div class="ph"><span class="tag">Commercial</span><span class="tag year">2022</span><img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Workspace</b> • Noida</div><h3>Atrium Clinic</h3><p>A calm, daylit healthcare interior planned around a planted atrium.</p></a>
-      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="architecture" data-delay="2"><div class="ph"><span class="tag">Architecture</span><span class="tag year">2021</span><img src="../../assets/stock/architecture-villa-dusk.jpg" alt="" onerror="this.remove()"></div><div class="meta"><b>Architecture</b> • Faridabad</div><h3>Terrace House</h3><p>A stepped family residence with layered terraces facing the Aravalli ridge.</p></a>
-      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="turnkey"><div class="ph"><span class="tag">Turnkey</span><span class="tag year">2021</span><img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Turnkey</b> • Gurugram</div><h3>Ridge Villa</h3><p>Complete design-and-build of a weekend home, from foundation to furnishing.</p></a>
-      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="hospitality" data-delay="1"><div class="ph"><span class="tag">Hospitality</span><span class="tag year">2020</span><img src="../../assets/stock/hospitality-bar.jpg" alt="" onerror="this.remove()"></div><div class="meta"><b>Interior</b> • New Delhi</div><h3>Café Verde</h3><p>A forty-cover café in terrazzo, cane and deep green, built in eight weeks.</p></a>
-      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="commercial" data-delay="2"><div class="ph"><span class="tag">Commercial</span><span class="tag year">2020</span><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Retail</b> • New Delhi</div><h3>Boutique, Khan Market</h3><p>A jewel-box retail interior in fluted glass, brass and travertine.</p></a>
+      <a href="../../project/v1/index.html" class="folio reveal" data-cat="architecture"><div class="ph"><span class="tag">Architecture</span><span class="tag year">2024</span><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Architecture</b> • Chhatarpur, New Delhi • 1,000 sq yd</div><h3>Courtyard House</h3><p>A contemporary farmhouse planned around a central landscaped courtyard.</p></a>
+      <a href="../../project/v1/index.html" class="folio reveal" data-cat="interior" data-delay="1"><div class="ph"><span class="tag">Interior</span><span class="tag year">2025</span><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Interior</b> • Gurugram • 4,200 sq ft</div><h3>The Verdant Residence</h3><p>A villa interior in warm oak, stone and muted greens.</p></a>
+      <a href="../../project/v1/index.html" class="folio reveal" data-cat="audit" data-delay="2"><div class="ph"><span class="tag">Audit</span><span class="tag year">2024</span><img src="../../assets/stock/site-plastering.jpg" alt="" onerror="this.remove()"></div><div class="meta"><b>Audit</b> • Gurugram • 360 sq yd</div><h3>Sector 57 Villa Audit</h3><p>Independent design review and stage-wise site audit for a family-built villa.</p></a>
+      <a href="../../project/v1/index.html" class="folio reveal" data-cat="interior"><div class="ph"><span class="tag">Interior</span><span class="tag year">2023</span><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Interior</b> • New Delhi • 3,600 sq ft</div><h3>Penthouse 21</h3><p>Monochrome luxury with floor-to-ceiling glazing and bespoke joinery.</p></a>
+      <a href="../../project/v1/index.html" class="folio reveal" data-cat="architecture" data-delay="1"><div class="ph"><span class="tag">Architecture</span><span class="tag year">2021</span><img src="../../assets/stock/architecture-villa-dusk.jpg" alt="" onerror="this.remove()"></div><div class="meta"><b>Architecture</b> • Faridabad • 500 sq yd</div><h3>Terrace House</h3><p>A stepped family residence with layered terraces facing the Aravalli ridge.</p></a>
+      <a href="../../project/v1/index.html" class="folio reveal" data-cat="audit" data-delay="2"><div class="ph"><span class="tag">Audit</span><span class="tag year">2025</span><img src="../../assets/stock/drawings-review.jpg" alt="" onerror="this.remove()"></div><div class="meta"><b>Audit</b> • Gurugram • 1.5 acres</div><h3>Golf Course Road Apartments</h3><p>Third-party audit of drawings, BOQs and site execution for a group-housing developer.</p></a>
+      <a href="../../project/v1/index.html" class="folio reveal" data-cat="architecture"><div class="ph"><span class="tag">Architecture</span><span class="tag year">2021</span><img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Architecture</b> • Gurugram • 800 sq yd</div><h3>Ridge Villa</h3><p>A weekend home on a sloping plot, designed and supervised from foundation to finish.</p></a>
+      <a href="../../project/v1/index.html" class="folio reveal" data-cat="interior" data-delay="1"><div class="ph"><span class="tag">Interior</span><span class="tag year">2024</span><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Interior</b> • Gurugram • 12,000 sq ft</div><h3>Studio Office, Gurugram</h3><p>A light-filled workspace for a growing design-led brand.</p></a>
+      <a href="../../project/v1/index.html" class="folio reveal" data-cat="audit" data-delay="2"><div class="ph"><span class="tag">Audit</span><span class="tag year">2023</span><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Audit</b> • Noida • 300 sq yd</div><h3>Maple Grove Villa Audit</h3><p>Quality and compliance audit through structure, services and finishes.</p></a>
+      <a href="../../project/v1/index.html" class="folio reveal" data-cat="architecture"><div class="ph"><span class="tag">Architecture</span><span class="tag year">2022</span><img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Architecture</b> • Noida • 1,200 sq yd</div><h3>Atrium Clinic</h3><p>A daylit healthcare building planned around a planted atrium.</p></a>
+      <a href="../../project/v1/index.html" class="folio reveal" data-cat="interior" data-delay="1"><div class="ph"><span class="tag">Interior</span><span class="tag year">2022</span><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Interior</b> • Gurugram • 2,400 sq ft</div><h3>Lakeview Apartment</h3><p>A compact three-bedroom apartment opened up around a single long view.</p></a>
+      <a href="../../project/v1/index.html" class="folio reveal" data-cat="audit" data-delay="2"><div class="ph"><span class="tag">Audit</span><span class="tag year">2022</span><img src="../../assets/stock/drawings-on-marble.jpg" alt="" onerror="this.remove()"></div><div class="meta"><b>Audit</b> • Faridabad • 2 acres</div><h3>School Block Audit</h3><p>Compliance and quality audit of an institutional block before occupancy.</p></a>
     </div>
-    <div class="folio-note reveal">All project names, locations and photographs are placeholders. Individual project pages will be added in the build phase.</div>
+    <div class="folio-note reveal">All project names, locations, plot sizes and photographs are placeholders. Every card opens the Project Detail template.</div>
   </div>
 </section>
 
-<!-- ============ NUMBERS ============ -->
+<!-- ============ STATS ============ -->
 <section class="stats bg-black">
   <div class="container">
     <div class="stats-grid">
-      <div class="stat reveal"><div class="num"><span data-count="200">0</span><small>+</small></div><div class="lbl">Projects Delivered</div><div class="sub">Homes, offices &amp; hospitality</div></div>
-      <div class="stat reveal" data-delay="1"><div class="num"><span data-count="30">0</span><small>+</small></div><div class="lbl">Years of Experience</div><div class="sub">Designing since 1996</div></div>
-      <div class="stat reveal" data-delay="2"><div class="num"><span data-count="12">0</span><small>+</small></div><div class="lbl">Cities</div><div class="sub">Placeholder figure</div></div>
-      <div class="stat reveal" data-delay="3"><div class="num"><span data-count="100">0</span><small>%</small></div><div class="lbl">Client Satisfaction</div><div class="sub">Referred &amp; repeat clients</div></div>
+      <div class="stat reveal"><div class="num"><span data-count="30">0</span><small>+</small></div><div class="lbl">Years of Practice</div><div class="sub">Designing since 1996</div></div>
+      <div class="stat reveal" data-delay="1"><div class="num"><span data-count="120">0</span><small>+</small></div><div class="lbl">Projects Delivered</div><div class="sub">Placeholder figure</div></div>
+      <div class="stat reveal" data-delay="2"><div class="num"><span data-count="200">0</span><small>+</small></div><div class="lbl">Clients Served</div><div class="sub">Homes, offices &amp; institutions</div></div>
+      <div class="stat reveal" data-delay="3"><div class="num"><span data-count="60">0</span><small>+</small></div><div class="lbl">Audits Completed</div><div class="sub">Placeholder figure</div></div>
     </div>
   </div>
 </section>
@@ -162,9 +161,9 @@
 <section class="section bg-off quote-band">
   <div class="container reveal">
     <div class="q">“</div>
-    <blockquote>The team understood exactly what we wanted before we could put it into words. Our home feels calm, elegant and completely ours.</blockquote>
-    <div class="testi" style="background:none;padding:0;border:0;display:inline-block"><div class="who"><div class="av">R</div><div><b>Mr. Rahul Mehta</b><span>The Verdant Residence · Placeholder review</span></div></div></div>
-    <div style="margin-top:36px"><a href="../../testimonials/v1/index.html" class="link">Read More Client Stories <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <blockquote>The drawings we approved were exactly what got built. Having the architect also audit the site meant nothing slipped between design and execution.</blockquote>
+    <div class="testi" style="background:none;padding:0;border:0;display:inline-block"><div class="who"><div class="av">R</div><div><b>Mr. Rahul Mehta</b><span>Courtyard House · Placeholder review</span></div></div></div>
+    <div style="margin-top:36px"><a href="../../home/v1/index.html#testimonials" class="link">Read More Client Stories <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
   </div>
 </section>
 
@@ -175,15 +174,15 @@
     <div class="reveal">
       <div class="eyebrow">Let's Talk</div>
       <h2>Your project could be <em>next.</em></h2>
-      <p class="lead">Tell us about your home, office or site. We will come back within 24 hours with a free consultation and a clear next step.</p>
+      <p class="lead">Tell us about your plot, home or site. We will come back within 24 hours with a free consultation and a clear next step.</p>
       <ul class="trust">
         <li>Free consultation</li>
         <li>24-hour response</li>
-        <li>30 years of experience</li>
+        <li>Architect and auditor in one</li>
       </ul>
     </div>
     <div class="cta-card reveal" data-delay="1">
-      <div class="lbl">Speak to a designer</div>
+      <div class="lbl">Speak to the principal architect</div>
       <a class="phone" href="tel:+919818886620">+91 98188 86620</a>
       <div class="hrs">Open 24 hours, 7 days a week</div>
       <a href="../../contact/v1/index.html" class="btn btn-black">Start Your Project Today <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
@@ -200,15 +199,15 @@
     <div class="footer-grid">
       <div>
         <div class="logo-tile"><img src="../../assets/logo-white.png" alt="MV Design Studio"></div>
-        <p>Creating spaces that inspire, endure and enrich the way people live and work. Architecture and interior design studio, established 1996.</p>
+        <p>An architecture practice whose principal is both the architect and the auditor on every project. Architecture, interiors and project audit, established 1996.</p>
       </div>
       <div>
         <h4>Quick Links</h4>
-        <ul><li><a href="../../about/v1/index.html">About Us</a></li><li><a href="../../services/v1/index.html">Services</a></li><li><a href="../../portfolio/v1/index.html">Portfolio</a></li><li><a href="../../testimonials/v1/index.html">Testimonials</a></li><li><a href="../../contact/v1/index.html">Contact</a></li></ul>
+        <ul><li><a href="../../about/v1/index.html">About the Studio</a></li><li><a href="../../principal/v1/index.html">Principal Architect</a></li><li><a href="../../services/v1/index.html">Services</a></li><li><a href="../../portfolio/v1/index.html">Portfolio</a></li><li><a href="../../process/v1/index.html">Our Process</a></li><li><a href="../../blog/v1/index.html">Blog</a></li><li><a href="../../contact/v1/index.html">Contact</a></li></ul>
       </div>
       <div>
         <h4>Our Services</h4>
-        <ul><li><a href="../../services/v1/index.html#architecture">Architecture Design</a></li><li><a href="../../services/v1/index.html#interiors">Interior Design</a></li><li><a href="../../services/v1/index.html#turnkey">Turnkey Execution</a></li><li><a href="../../services/v1/index.html#furniture">Furniture &amp; Décor</a></li></ul>
+        <ul><li><a href="../../architecture-design/v1/index.html">Architecture Design</a></li><li><a href="../../interior-design/v1/index.html">Interior Design</a></li><li><a href="../../project-audit/v1/index.html">Project Audit &amp; Consultancy</a></li></ul>
       </div>
       <div>
         <h4>Contact Us</h4>
@@ -222,7 +221,7 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 MV Design Studio. All rights reserved.</span>
-      <ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul>
+      <ul><li><a href="#" onclick="showToast('Privacy Policy, Terms, 404 and Thank-you pages are included in the build phase.');return false">Privacy Policy</a></li><li><a href="#" onclick="showToast('Privacy Policy, Terms, 404 and Thank-you pages are included in the build phase.');return false">Terms of Service</a></li></ul>
       <span class="credit">Website by <a href="https://webspidersolutions.com">Web Spider Solutions</a></span>
     </div>
   </div>
