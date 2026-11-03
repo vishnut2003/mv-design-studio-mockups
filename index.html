@@ -9,24 +9,29 @@
 :root{--green:#76C457;--green-dark:#5FA544;--ink:#111;--grey:#6B6B6B;--line:#E6E6E3;--off:#F6F6F4}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--off);line-height:1.6;padding:48px 16px}
-.wrap{max-width:960px;margin:0 auto}
+.wrap{max-width:1080px;margin:0 auto}
 header{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:40px}
 header img{height:44px}
 header small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
 h1{font-family:'Italiana',serif;font-weight:400;font-size:40px;line-height:1.1;margin-bottom:8px}
-p.lead{color:var(--grey);margin-bottom:36px;max-width:60ch}
+p.lead{color:var(--grey);margin-bottom:36px;max-width:70ch}
+h2.group{font-family:'Italiana',serif;font-weight:400;font-size:26px;margin:40px 0 16px;display:flex;align-items:center;gap:14px}
+h2.group small{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
 .card{background:#fff;border:1px solid var(--line);border-radius:4px;padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform .3s,box-shadow .3s}
 .card:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(0,0,0,.06)}
 .card h2{font-family:'Italiana',serif;font-weight:400;font-size:28px}
 .card .meta{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+.card p{font-size:14px;color:var(--grey)}
 .badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:#eee;color:#555;align-self:flex-start}
 .badge.draft{background:#f3f3f1;color:#666}
 .badge.review{background:#fff4d6;color:#8a6400}
 .badge.changes{background:#ffe3e3;color:#9b2c2c}
 .badge.approved{background:#EAF6E3;color:var(--green-dark)}
+.num{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--green-dark);font-weight:600}
 .card a.open{margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);text-decoration:none;padding-top:12px}
 .card a.open:hover{color:var(--green-dark)}
+.note{background:#fff;border:1px solid var(--line);border-left:3px solid var(--green);padding:16px 20px;font-size:14px;color:#333;margin-bottom:8px}
 footer{margin-top:48px;font-size:12.5px;color:var(--grey);border-top:1px solid var(--line);padding-top:20px}
 </style>
 </head>
@@ -37,58 +42,136 @@ footer{margin-top:48px;font-size:12.5px;color:var(--grey);border-top:1px solid v
     <small>Design mockups · Web Spider Solutions</small>
   </header>
   <h1>Page Mockups</h1>
-  <p class="lead">Design proposals for the MV Design Studio website. Each mockup opens as a standalone page. Status is tracked in STATUS.md.</p>
+  <p class="lead">Design proposals for the MV Design Studio website: one Home page and eleven inner pages as listed in the signed proposal (28 Oct 2026). Each mockup opens as a standalone page. Status is tracked in STATUS.md.</p>
+  <div class="note">All v1 pages share one design system (Italiana + Inter, green accent, black feature bands). Names, numbers, registration details, project photos and reviews are placeholders until MV Design Studio supplies them.</div>
+
+  <h2 class="group">Home and studio <small>MOU pages 1–3</small></h2>
   <div class="grid">
     <div class="card">
       <span class="badge draft">Draft</span>
+      <div class="num">01 · Home</div>
       <h2>Home</h2>
-      <div class="meta">Variant v1 · 30 Oct 2026</div>
-      <p style="font-size:14px;color:var(--grey)">Premium light theme with black feature sections, green accent, Italiana + Inter typography. Shares assets/v1 CSS and JS with the inner pages below.</p>
+      <div class="meta">Variant v1 · 3 Nov 2026</div>
+      <p>Full-screen hero, stats strip, intro, three service cards, six featured projects with plot size and year, Architect &amp; Auditor section, four-step process, testimonials with video, consultation form.</p>
       <a class="open" href="home/v1/index.html">Open mockup →</a>
     </div>
     <div class="card">
       <span class="badge draft">Draft</span>
-      <h2>About Us</h2>
+      <div class="num">02 · About the Studio</div>
+      <h2>About the Studio</h2>
       <div class="meta">Variant v1 · 3 Nov 2026</div>
-      <p style="font-size:14px;color:var(--grey)">Story, studio numbers, mission / vision / values, milestone timeline and team (placeholder people).</p>
+      <p>Story and design philosophy, studio numbers, mission / vision / values, milestones and team, ending in a consultation prompt.</p>
       <a class="open" href="about/v1/index.html">Open mockup →</a>
     </div>
     <div class="card">
       <span class="badge draft">Draft</span>
+      <div class="num">03 · Principal Architect and Auditor</div>
+      <h2>Principal Architect</h2>
+      <div class="meta">Variant v1 · 3 Nov 2026</div>
+      <p>Profile, background, credentials and registrations, kinds of projects handled, how the dual role protects the client, awards placeholders.</p>
+      <a class="open" href="principal/v1/index.html">Open mockup →</a>
+    </div>
+  </div>
+
+  <h2 class="group">Services <small>MOU pages 4–7</small></h2>
+  <div class="grid">
+    <div class="card">
+      <span class="badge draft">Draft</span>
+      <div class="num">04 · Services</div>
       <h2>Services</h2>
       <div class="meta">Variant v1 · 3 Nov 2026</div>
-      <p style="font-size:14px;color:var(--grey)">Overview grid, four detailed service sections with deliverables, process steps and an FAQ accordion.</p>
+      <p>Overview of the three services with who each is for and a next step, the auditor's-eye band, four-step strip and FAQ.</p>
       <a class="open" href="services/v1/index.html">Open mockup →</a>
     </div>
     <div class="card">
       <span class="badge draft">Draft</span>
+      <div class="num">05 · Architecture Design</div>
+      <h2>Architecture Design</h2>
+      <div class="meta">Variant v1 · 3 Nov 2026</div>
+      <p>What it is, who it is for, deliverables at five stages, sample project, FAQ and consultation CTA.</p>
+      <a class="open" href="architecture-design/v1/index.html">Open mockup →</a>
+    </div>
+    <div class="card">
+      <span class="badge draft">Draft</span>
+      <div class="num">06 · Interior Design</div>
+      <h2>Interior Design</h2>
+      <div class="meta">Variant v1 · 3 Nov 2026</div>
+      <p>Same structure as Architecture Design, written for concept-to-completion interiors.</p>
+      <a class="open" href="interior-design/v1/index.html">Open mockup →</a>
+    </div>
+    <div class="card">
+      <span class="badge draft">Draft</span>
+      <div class="num">07 · Project Audit and Consultancy</div>
+      <h2>Project Audit</h2>
+      <div class="meta">Variant v1 · 3 Nov 2026</div>
+      <p>Design review, site and quality audit, bill checks and compliance support, with stage deliverables and FAQ.</p>
+      <a class="open" href="project-audit/v1/index.html">Open mockup →</a>
+    </div>
+  </div>
+
+  <h2 class="group">Work, process and content <small>MOU pages 8–12</small></h2>
+  <div class="grid">
+    <div class="card">
+      <span class="badge draft">Draft</span>
+      <div class="num">08 · Portfolio</div>
       <h2>Portfolio</h2>
       <div class="meta">Variant v1 · 3 Nov 2026</div>
-      <p style="font-size:14px;color:var(--grey)">Featured project, animated category filter over 12 placeholder projects, numbers strip and client quote.</p>
+      <p>Featured project and an animated Architecture / Interior / Audit filter over twelve placeholder projects; every card opens the project template.</p>
       <a class="open" href="portfolio/v1/index.html">Open mockup →</a>
     </div>
     <div class="card">
       <span class="badge draft">Draft</span>
-      <h2>Testimonials</h2>
+      <div class="num">09 · Project Detail (template)</div>
+      <h2>Project Detail</h2>
       <div class="meta">Variant v1 · 3 Nov 2026</div>
-      <p style="font-size:14px;color:var(--grey)">Rating summary, featured client story, nine review cards, video testimonial placeholders and a review CTA.</p>
-      <a class="open" href="testimonials/v1/index.html">Open mockup →</a>
+      <p>One layout for every project: hero, plot size / location / year / scope bar, brief, gallery, audit checkpoints, "Start a similar project" and related work.</p>
+      <a class="open" href="project/v1/index.html">Open mockup →</a>
     </div>
     <div class="card">
       <span class="badge draft">Draft</span>
+      <div class="num">10 · Our Process</div>
+      <h2>Our Process</h2>
+      <div class="meta">Variant v1 · 3 Nov 2026</div>
+      <p>Seven steps from first call to handover with approval and audit-checkpoint badges, what you receive, FAQ and testimonials.</p>
+      <a class="open" href="process/v1/index.html">Open mockup →</a>
+    </div>
+    <div class="card">
+      <span class="badge draft">Draft</span>
+      <div class="num">11 · Blog (listing)</div>
+      <h2>Blog</h2>
+      <div class="meta">Variant v1 · 3 Nov 2026</div>
+      <p>Featured article, topic filter (Vastu, bye-laws, approvals, materials, cost planning, project stories) over nine placeholder posts.</p>
+      <a class="open" href="blog/v1/index.html">Open mockup →</a>
+    </div>
+    <div class="card">
+      <span class="badge draft">Draft</span>
+      <div class="num">11 · Blog (post layout)</div>
+      <h2>Blog Post</h2>
+      <div class="meta">Variant v1 · 3 Nov 2026</div>
+      <p>Article layout with headings, callout, figure, lists, quote, share links, author box and related articles.</p>
+      <a class="open" href="blog-post/v1/index.html">Open mockup →</a>
+    </div>
+    <div class="card">
+      <span class="badge draft">Draft</span>
+      <div class="num">12 · Contact</div>
       <h2>Contact</h2>
       <div class="meta">Variant v1 · 3 Nov 2026</div>
-      <p style="font-size:14px;color:var(--grey)">Contact cards, enquiry form with budget and preferred-contact options, map placeholder and hours / social band.</p>
+      <p>Contact cards, consultation form (project type, plot size, location), map placeholder and hours / social band.</p>
       <a class="open" href="contact/v1/index.html">Open mockup →</a>
     </div>
+  </div>
+
+  <h2 class="group">Earlier concept <small>not part of the MOU set</small></h2>
+  <div class="grid">
     <div class="card">
       <span class="badge draft">Draft</span>
       <h2>Home</h2>
       <div class="meta">Variant v2 · 2 Nov 2026</div>
-      <p style="font-size:14px;color:var(--grey)">Light marble-wall scene hero, Bricolage Grotesque + IBM Plex Mono, new Block M logo, drawing-sheet labels with the green V. Images are concept renders and Pexels stock photos.</p>
+      <p>Alternative Home concept from before the proposal was shared: light marble-wall hero, Bricolage Grotesque + IBM Plex Mono, Block M logo. Not updated for the MOU page set.</p>
       <a class="open" href="home/v2/index.html">Open mockup →</a>
     </div>
   </div>
+
   <footer>Prepared by Web Spider Solutions · info@webspidersolutions.com</footer>
 </div>
 </body>
