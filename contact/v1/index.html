@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MV Design Studio — Contact (Mockup v1)</title>
+<meta name="description" content="Design mockup v1 of the MV Design Studio Contact page, prepared by Web Spider Solutions for client review.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/v1/v1.css">
+<style>
+/* ============ CONTACT PAGE ONLY ============ */
+.info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.info-card{background:var(--white);border:1px solid var(--line);padding:34px 30px 32px;border-radius:2px;position:relative;transition:transform .4s var(--ease),box-shadow .4s}
+.info-card::before{content:"";position:absolute;left:0;top:-1px;height:2px;width:0;background:var(--green);transition:width .6s var(--ease)}
+.info-card:hover{transform:translateY(-5px);box-shadow:0 30px 60px rgba(0,0,0,.07)}
+.info-card:hover::before{width:100%}
+.info-card svg{width:26px;height:26px;color:var(--green-dark);margin-bottom:22px}
+.info-card .lbl{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);margin-bottom:10px}
+.info-card .val{font-family:var(--font-head);font-size:24px;line-height:1.2;color:var(--ink);display:block;transition:color .3s;word-break:break-word}
+.info-card a.val:hover{color:var(--green-dark)}
+.info-card .sub{font-size:13px;color:var(--grey);margin-top:8px;font-weight:300}
+.info-card em{display:block;font-style:normal;font-size:11px;color:var(--green-dark);letter-spacing:.1em;text-transform:uppercase;margin-top:8px}
+.next{display:grid;gap:0;margin:34px 0 36px;border-top:1px solid var(--line)}
+.next li{display:flex;gap:22px;align-items:flex-start;padding:22px 0;border-bottom:1px solid var(--line)}
+.next .n{font-family:var(--font-head);font-size:36px;line-height:1;color:var(--green);min-width:48px}
+.next h4{font-size:16px;font-weight:600;margin-bottom:4px}
+.next p{font-size:14px;color:var(--grey);font-weight:300}
+.pills{display:flex;gap:10px;flex-wrap:wrap}
+.pills label{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border:1px solid var(--line);border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s,border-color .3s;color:#444}
+.pills input{appearance:none;-webkit-appearance:none;width:0;height:0;margin:0}
+.pills label:has(input:checked){background:var(--black);color:var(--white);border-color:var(--black)}
+.map{position:relative;border-radius:2px;overflow:hidden;background:var(--black)}
+.map .ph{aspect-ratio:21/8}
+.map .ph img{opacity:.35;filter:grayscale(1)}
+.map .ph:hover img{transform:none}
+.map .grid{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
+.map .pin{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;text-align:center;color:var(--white)}
+.map .pin svg{width:48px;height:48px;color:var(--green);margin:0 auto 12px;filter:drop-shadow(0 10px 20px rgba(0,0,0,.5))}
+.map .pin b{display:block;font-family:var(--font-head);font-size:26px;font-weight:400;margin-bottom:6px}
+.map .pin span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+.map .addr{position:absolute;left:clamp(16px,3vw,40px);bottom:clamp(16px,3vw,40px);z-index:2;max-width:360px;padding:26px 28px}
+.map .addr .phone{font-size:24px}
+.hours-band{padding:clamp(40px,5vw,64px) 0}
+.hours-band .container{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+.hours-band .h{display:flex;align-items:center;gap:18px}
+.hours-band .h svg{width:34px;height:34px;color:var(--green);flex:none}
+.hours-band .h b{display:block;font-family:var(--font-head);font-size:26px;font-weight:400;line-height:1.1}
+.hours-band .h span{font-size:13px;color:rgba(255,255,255,.6)}
+.social{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.social span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-right:8px}
+.social a{width:44px;height:44px;border-radius:50%;border:1px solid var(--line-dark);display:flex;align-items:center;justify-content:center;transition:border-color .3s,background .3s,color .3s}
+.social a:hover{border-color:var(--green);background:var(--green);color:var(--black)}
+.social svg{width:18px;height:18px}
+@media (max-width:1100px){.info-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:900px){
+  .map .ph{aspect-ratio:4/5}
+  .map .pin{top:27%}
+  .map .addr{left:16px;right:16px;bottom:16px;max-width:none}
+  .hours-band .container{justify-content:center;text-align:center}
+  .hours-band .h{flex-direction:column;text-align:center}
+  .social{justify-content:center}
+  .social span{width:100%;margin:0 0 4px;text-align:center}
+}
+@media (max-width:600px){.info-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="contact">
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="container">
+    <a class="logo" href="../../home/v1/index.html"><img class="logo-light" src="../../assets/logo-white.png" alt="MV Design Studio"><img class="logo-dark" src="../../assets/logo-black.png" alt="MV Design Studio"></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="../../home/v1/index.html" data-page="home">Home</a>
+      <a href="../../about/v1/index.html" data-page="about">About</a>
+      <a href="../../services/v1/index.html" data-page="services">Services</a>
+      <a href="../../portfolio/v1/index.html" data-page="portfolio">Portfolio</a>
+      <a href="../../testimonials/v1/index.html" data-page="testimonials">Testimonials</a>
+      <a href="../../contact/v1/index.html" data-page="contact" class="active">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#enquiry" class="btn btn-nav">Get Consultation</a>
+      <button class="burger" type="button" aria-label="Menu" onclick="document.body.classList.toggle('nav-open');updateNav()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MOBILE SIDEBAR MENU ============ -->
+<div class="menu-backdrop" onclick="closeMenu()"></div>
+<aside class="mobile-menu" aria-label="Menu">
+  <div class="mm-head">
+    <img src="../../assets/logo-white.png" alt="MV Design Studio">
+    <button class="mm-close" type="button" aria-label="Close menu" onclick="closeMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
+  <div class="mm-eyebrow">Menu</div>
+  <nav class="mm-links">
+    <a href="../../home/v1/index.html" data-page="home"><span>01</span>Home</a>
+    <a href="../../about/v1/index.html" data-page="about"><span>02</span>About</a>
+    <a href="../../services/v1/index.html" data-page="services"><span>03</span>Services</a>
+    <a href="../../portfolio/v1/index.html" data-page="portfolio"><span>04</span>Portfolio</a>
+    <a href="../../testimonials/v1/index.html" data-page="testimonials"><span>05</span>Testimonials</a>
+    <a href="../../contact/v1/index.html" data-page="contact"><span>06</span>Contact</a>
+  </nav>
+  <a href="#enquiry" class="btn btn-white" onclick="closeMenu()">Get Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</aside>
+
+<main id="top">
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="ph"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80" alt="" onerror="this.remove()"></div>
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../home/v1/index.html">Home</a><span class="sep">/</span><span class="cur">Contact</span></nav>
+    <div class="eyebrow">Contact Us</div>
+    <h1>Let's talk about <br><em>your space.</em></h1>
+    <p class="lead">Call, message or send us a few details about your project. A designer will get back to you within 24 hours to arrange a free consultation.</p>
+  </div>
+</section>
+
+<!-- ============ CONTACT DETAILS ============ -->
+<section class="section bg-off" id="details" style="padding-bottom:clamp(48px,6vw,80px)">
+  <div class="container">
+    <div class="info-grid">
+      <a href="tel:+919818886620" class="info-card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg><div class="lbl">Call us</div><span class="val">+91 98188 86620</span><div class="sub">Open 24 hours, 7 days a week</div></a>
+      <a href="https://wa.me/919818886620" target="_blank" rel="noopener" class="info-card reveal" data-delay="1"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.95L0 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg><div class="lbl">WhatsApp</div><span class="val">Chat with a designer</span><div class="sub">Send photos or drawings directly</div></a>
+      <a href="mailto:info@mvdesignstudio.com" class="info-card reveal" data-delay="2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg><div class="lbl">Email</div><span class="val" style="font-size:20px">info@mvdesignstudio.com</span><em>Placeholder — domain to confirm</em></a>
+      <div class="info-card reveal" data-delay="3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div class="lbl">Visit the studio</div><span class="val">Studio address</span><em>Placeholder — to be provided</em></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ENQUIRY FORM ============ -->
+<section class="section" id="enquiry" style="padding-top:clamp(48px,6vw,80px)">
+  <div class="container">
+    <div class="consult-grid">
+      <div class="reveal">
+        <div class="eyebrow">Start a Project</div>
+        <h2 class="h2">Tell us about your project.</h2>
+        <p class="lead">A few details are enough to begin. We will review them, call you to understand the brief and propose a time for a free consultation or site visit.</p>
+        <ol class="next">
+          <li><div class="n">01</div><div><h4>We call you within 24 hours</h4><p>A designer, not a call centre, to understand your space, timeline and budget.</p></div></li>
+          <li><div class="n">02</div><div><h4>Free consultation or site visit</h4><p>At our studio or at your site, whichever suits you.</p></div></li>
+          <li><div class="n">03</div><div><h4>A clear proposal</h4><p>Scope, timeline and an itemised estimate, with no obligation.</p></div></li>
+        </ol>
+        <div class="call-line">Prefer to talk now? <a href="tel:+919818886620">+91 98188 86620</a></div>
+      </div>
+      <form class="form-card reveal" data-delay="1" onsubmit="return mockSubmit(event)">
+        <h3>Request a Consultation</h3>
+        <div class="note">Fields marked * are required. This form is a design mockup and is not connected.</div>
+        <div class="form-row">
+          <div class="field"><label for="f-name">Full Name *</label><input id="f-name" type="text" placeholder="Your name" required></div>
+          <div class="field"><label for="f-phone">Phone *</label><input id="f-phone" type="tel" placeholder="+91" required></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" placeholder="you@example.com"></div>
+          <div class="field"><label for="f-city">City</label><input id="f-city" type="text" placeholder="Gurugram, New Delhi, Noida…"></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="f-type">Project Type *</label>
+            <select id="f-type" required>
+              <option value="">Select a project type</option>
+              <option>Residential Interior</option>
+              <option>Commercial Interior</option>
+              <option>Architecture Design</option>
+              <option>Turnkey Design &amp; Build</option>
+              <option>Furniture &amp; Décor</option>
+            </select>
+          </div>
+          <div class="field"><label for="f-budget">Approximate Budget</label>
+            <select id="f-budget">
+              <option value="">Select a range</option>
+              <option>Under ₹10 lakh</option>
+              <option>₹10 – 25 lakh</option>
+              <option>₹25 – 50 lakh</option>
+              <option>₹50 lakh – 1 crore</option>
+              <option>Above ₹1 crore</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label>Preferred way to reach you</label>
+          <div class="pills">
+            <label><input type="radio" name="pref" value="call" checked>Call</label>
+            <label><input type="radio" name="pref" value="whatsapp">WhatsApp</label>
+            <label><input type="radio" name="pref" value="email">Email</label>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">Project Details</label><textarea id="f-msg" placeholder="Location, approximate area, timeline and anything else we should know."></textarea></div>
+        <button type="submit" class="btn btn-black">Request Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAP ============ -->
+<section class="section bg-off" id="map">
+  <div class="container">
+    <div class="sec-head split reveal">
+      <div>
+        <div class="eyebrow">Find Us</div>
+        <h2 class="h2">Visit the studio</h2>
+        <p class="lead">See our material library, sample finishes and project drawings in person. Visits by appointment, any day of the week.</p>
+      </div>
+      <a href="#enquiry" class="link">Book a Studio Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="map reveal">
+      <div class="ph"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=60" alt="" onerror="this.remove()"></div>
+      <div class="grid" aria-hidden="true"></div>
+      <div class="pin">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a8 8 0 0 0-8 8c0 5.4 7 11.5 7.3 11.8a1 1 0 0 0 1.4 0C13 21.5 20 15.4 20 10a8 8 0 0 0-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+        <b>Map placeholder</b>
+        <span>Live map once the address is confirmed</span>
+      </div>
+      <div class="cta-card addr">
+        <div class="lbl">MV Design Studio</div>
+        <div style="font-family:var(--font-head);font-size:22px;line-height:1.25;margin-bottom:6px">Studio address line 1<br>City, State, PIN</div>
+        <div class="hrs" style="margin-bottom:0">Placeholder — address to be provided by the client</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOURS + SOCIAL ============ -->
+<section class="hours-band bg-black">
+  <div class="container">
+    <div class="h reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <div><b>Open 24 hours, 7 days a week</b><span>Call or message whenever suits you. Studio visits by appointment.</span></div>
+    </div>
+    <div class="social reveal" data-delay="1">
+      <span>Follow us</span>
+      <a href="#" onclick="showToast('Placeholder — social profile links to be provided.');return false" aria-label="Instagram (placeholder)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
+      <a href="#" onclick="showToast('Placeholder — social profile links to be provided.');return false" aria-label="Facebook (placeholder)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      <a href="#" onclick="showToast('Placeholder — social profile links to be provided.');return false" aria-label="LinkedIn (placeholder)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      <a href="#" onclick="showToast('Placeholder — social profile links to be provided.');return false" aria-label="YouTube (placeholder)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22.5 6.4a2.8 2.8 0 0 0-2-2C18.8 4 12 4 12 4s-6.8 0-8.5.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 1 12a29 29 0 0 0 .5 5.6 2.8 2.8 0 0 0 2 2c1.7.4 8.5.4 8.5.4s6.8 0 8.5-.4a2.8 2.8 0 0 0 2-2A29 29 0 0 0 23 12a29 29 0 0 0-.5-5.6z"/><path d="m10 15 5-3-5-3z"/></svg></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer bg-black" style="border-top:1px solid var(--line-dark)">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo-tile"><img src="../../assets/logo-white.png" alt="MV Design Studio"></div>
+        <p>Creating spaces that inspire, endure and enrich the way people live and work. Architecture and interior design studio, established 1996.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul><li><a href="../../about/v1/index.html">About Us</a></li><li><a href="../../services/v1/index.html">Services</a></li><li><a href="../../portfolio/v1/index.html">Portfolio</a></li><li><a href="../../testimonials/v1/index.html">Testimonials</a></li><li><a href="../../contact/v1/index.html">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>Our Services</h4>
+        <ul><li><a href="../../services/v1/index.html#architecture">Architecture Design</a></li><li><a href="../../services/v1/index.html#interiors">Interior Design</a></li><li><a href="../../services/v1/index.html#turnkey">Turnkey Execution</a></li><li><a href="../../services/v1/index.html#furniture">Furniture &amp; Décor</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact Us</h4>
+        <ul class="contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+919818886620">+91 98188 86620</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg><div><a href="mailto:info@mvdesignstudio.com">info@mvdesignstudio.com</a><em>Placeholder — domain to confirm</em></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Open 24 hours, 7 days a week</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div>Studio address<em>Placeholder — to be provided</em></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MV Design Studio. All rights reserved.</span>
+      <ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul>
+      <span class="credit">Website by <a href="https://webspidersolutions.com">Web Spider Solutions</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING ============ -->
+<div class="float">
+  <a href="https://wa.me/919818886620" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.95L0 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg></a>
+  <a href="tel:+919818886620" aria-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></a>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="star" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></defs></svg>
+
+<script src="../../assets/v1/v1.js"></script>
+</body>
+</html>

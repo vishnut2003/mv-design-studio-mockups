@@ -8,445 +8,24 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-/* ============ TOKENS ============ */
-:root{
-  --green:#76C457;
-  --green-dark:#5FA544;
-  --green-soft:#EAF6E3;
-  --black:#0B0B0B;
-  --ink:#111111;
-  --white:#FFFFFF;
-  --off:#F6F6F4;
-  --grey:#6B6B6B;
-  --line:#E6E6E3;
-  --line-dark:rgba(255,255,255,.12);
-  --font-head:'Italiana',Georgia,serif;
-  --font-body:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-  --max:1240px;
-  --gutter:24px;
-  --pad:clamp(72px,10vw,140px);
-  --ease:cubic-bezier(.22,1,.36,1);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:var(--font-body);color:var(--ink);background:var(--white);line-height:1.7;font-size:16px;font-weight:400;overflow-x:hidden}
-img{display:block;max-width:100%}
-a{color:inherit;text-decoration:none}
-ul{list-style:none}
-button,input,select,textarea{font:inherit;color:inherit}
-h1,h2,h3,.serif{font-family:var(--font-head);font-weight:400;line-height:1.05;letter-spacing:.01em}
-.container{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
-section{position:relative}
-.section{padding:var(--pad) 0}
-.bg-off{background:var(--off)}
-.bg-black{background:var(--black);color:var(--white)}
-.bg-black .eyebrow{color:var(--green)}
-.bg-black p{color:rgba(255,255,255,.72)}
-
-/* ============ TYPE ============ */
-.eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:22px}
-.eyebrow::before{content:"";width:32px;height:1px;background:currentColor}
-.h2{font-size:clamp(38px,5vw,64px);margin-bottom:20px}
-.lead{font-size:18px;color:var(--grey);max-width:60ch;font-weight:300}
-.sec-head{max-width:720px;margin-bottom:clamp(40px,5vw,72px)}
-.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
-.sec-head.center .eyebrow::before{display:none}
-.sec-head.split{max-width:none;display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
-.sec-head.split > div{max-width:720px}
-
-/* ============ BUTTONS ============ */
-.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 32px;border-radius:999px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border:1px solid transparent;cursor:pointer;transition:transform .4s var(--ease),background .3s,color .3s,border-color .3s;white-space:nowrap}
-.btn:hover{transform:translateY(-3px)}
-.btn svg{width:16px;height:16px;transition:transform .4s var(--ease)}
-.btn:hover svg{transform:translateX(4px)}
-.btn-black{background:var(--black);color:var(--white);border-color:var(--black)}
-.btn-black:hover{background:var(--white);color:var(--black)}
-.btn-black svg,.btn-white svg{color:var(--green)}
-.btn-black:hover svg,.btn-white:hover svg{color:inherit}
-/* nav CTA: white over the hero, black once the header turns white */
-.btn-nav{background:var(--white);color:var(--black)}
-.btn-nav:hover{background:var(--black);color:var(--white)}
-.nav.scrolled .btn-nav{background:var(--black);color:var(--white)}
-.nav.scrolled .btn-nav:hover{background:var(--white);color:var(--black);border-color:var(--black)}
-.btn-outline-w{border-color:rgba(255,255,255,.6);color:var(--white)}
-.btn-outline-w:hover{border-color:var(--white);background:var(--white);color:var(--black)}
-.btn-outline-b{border-color:var(--ink);color:var(--ink)}
-.btn-outline-b:hover{background:var(--ink);color:var(--white)}
-.btn-white{background:var(--white);color:var(--black);border-color:var(--white)}
-.btn-white:hover{background:var(--green);color:var(--black);border-color:var(--green)}
-
-/* ============ PLACEHOLDER IMAGES ============ */
-.ph{position:relative;overflow:hidden;background:linear-gradient(135deg,#1c1c1c 0%,#2e3a28 60%,#3f6a2c 100%)}
-.ph img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
-.ph:hover img{transform:scale(1.04)}
-
-/* ============ NAV (transparent over hero, white once scrolled) ============ */
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:transparent;border-bottom:1px solid transparent;transition:background .35s,box-shadow .35s,border-color .35s}
-.nav.scrolled{background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-color:var(--line);box-shadow:0 6px 30px rgba(0,0,0,.06)}
-.nav:not(.scrolled) .nav-links a{color:var(--white)}
-.logo .logo-dark{display:none}
-.nav.scrolled .logo .logo-light{display:none}
-.nav.scrolled .logo .logo-dark{display:block}
-.nav:not(.scrolled) .burger{border-color:rgba(255,255,255,.5)}
-.nav:not(.scrolled) .burger span{background:var(--white)}
-section[id]{scroll-margin-top:72px}
-.nav .container{display:flex;align-items:center;justify-content:space-between;height:88px;transition:height .3s}
-.nav.scrolled .container{height:72px}
-.logo{display:flex;align-items:center}
-.logo img{height:42px;width:auto;transition:height .3s}
-.nav.scrolled .logo img{height:36px}
-.nav-links{display:flex;gap:36px;align-items:center}
-.nav-links a{font-size:13.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;position:relative;padding:6px 0}
-.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--green);transition:width .4s var(--ease)}
-.nav-links a:hover::after,.nav-links a.active::after{width:100%}
-.nav-cta{display:flex;align-items:center;gap:20px}
-.nav .btn{padding:13px 26px}
-.burger{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:none;cursor:pointer;position:relative}
-.burger span{position:absolute;left:13px;width:18px;height:1.5px;background:var(--ink);transition:transform .3s,opacity .3s,top .3s}
-.burger span:nth-child(1){top:16px}
-.burger span:nth-child(2){top:21px}
-.burger span:nth-child(3){top:26px}
-body.nav-open .burger span:nth-child(1){top:21px;transform:rotate(45deg)}
-body.nav-open .burger span:nth-child(2){opacity:0}
-body.nav-open .burger span:nth-child(3){top:21px;transform:rotate(-45deg)}
-/* ============ MOBILE SIDEBAR MENU (slides in from the right) ============ */
-body.nav-open{overflow:hidden}
-body.nav-open .float{opacity:0;pointer-events:none;transition:opacity .3s}
-.menu-backdrop{position:fixed;inset:0;z-index:1090;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .45s}
-body.nav-open .menu-backdrop{opacity:1;pointer-events:auto}
-.mobile-menu{position:fixed;top:0;right:0;bottom:0;z-index:1100;width:min(86vw,380px);background:var(--black);color:var(--white);display:flex;flex-direction:column;padding:22px 28px 30px;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;transform:translateX(100%);visibility:hidden;transition:transform .55s var(--ease),visibility 0s linear .55s,box-shadow .3s}
-.mobile-menu::-webkit-scrollbar{display:none}
-.mobile-menu::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--green)}
-body.nav-open .mobile-menu{transform:none;visibility:visible;transition-delay:0s;box-shadow:-30px 0 80px rgba(0,0,0,.5)}
-.mm-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:34px}
-.mm-head img{height:34px}
-.mm-close{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:none;color:var(--white);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .3s,background .3s,transform .4s var(--ease)}
-.mm-close:hover{border-color:var(--green);background:rgba(118,196,87,.12);transform:rotate(90deg)}
-.mm-close svg{width:18px;height:18px}
-.mm-eyebrow{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:6px}
-.mm-links{display:flex;flex-direction:column}
-.mm-links a{display:flex;align-items:baseline;gap:16px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.1);font-family:var(--font-head);font-size:31px;line-height:1;color:var(--white);opacity:0;transform:translateX(36px);transition:opacity .5s var(--ease),transform .5s var(--ease),color .3s,padding-left .3s}
-.mm-links a span{font-family:var(--font-body);font-size:11px;letter-spacing:.14em;color:var(--green);min-width:22px}
-.mm-links a:hover{color:var(--green);padding-left:6px}
-body.nav-open .mm-links a{opacity:1;transform:none}
-body.nav-open .mm-links a:nth-child(1){transition-delay:.12s}
-body.nav-open .mm-links a:nth-child(2){transition-delay:.18s}
-body.nav-open .mm-links a:nth-child(3){transition-delay:.24s}
-body.nav-open .mm-links a:nth-child(4){transition-delay:.30s}
-body.nav-open .mm-links a:nth-child(5){transition-delay:.36s}
-body.nav-open .mm-links a:nth-child(6){transition-delay:.42s}
-.mobile-menu .btn{margin-top:28px;justify-content:center;width:100%}
-@media (min-width:901px){.mobile-menu,.menu-backdrop{display:none}}
-
-/* ============ HERO ============ */
-.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;color:var(--white);background:var(--black)}
-.hero .ph{position:absolute;inset:0}
-.hero .ph img{opacity:.92;animation:heroZoom 14s var(--ease) forwards}
-@keyframes heroZoom{from{transform:scale(1.08)}to{transform:scale(1)}}
-.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.6) 45%,rgba(0,0,0,.35) 100%),linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,.25) 40%,rgba(0,0,0,.9) 100%)}
-.hero .container{position:relative;z-index:2;width:100%;padding-top:110px;padding-bottom:72px}
-.hero .eyebrow{color:var(--white);text-shadow:0 1px 12px rgba(0,0,0,.6);margin-bottom:clamp(12px,2vh,22px)}
-.hero h1{font-size:clamp(30px,min(5.4vw,10vh),84px);line-height:1.08;margin-bottom:clamp(16px,2.6vh,26px);text-shadow:0 2px 30px rgba(0,0,0,.3)}
-.hero h1 em{font-style:normal;color:var(--white)}
-.hero p{font-size:clamp(15px,1.25vw,18px);max-width:52ch;color:rgba(255,255,255,.8);font-weight:300;margin-bottom:clamp(20px,3.5vh,36px)}
-.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
-.hero-meta{display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
-.hero-side{display:flex;flex-direction:column;align-items:flex-end;gap:18px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7)}
-.hero-side .line{width:1px;height:80px;background:linear-gradient(to bottom,var(--green),transparent)}
-.hero-side .vert{writing-mode:vertical-rl;transform:rotate(180deg)}
-.scroll-hint{position:absolute;left:50%;transform:translateX(-50%);bottom:24px;z-index:3;display:flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.6)}
-.scroll-hint span{width:40px;height:1px;background:rgba(255,255,255,.4);position:relative;overflow:hidden}
-.scroll-hint span::after{content:"";position:absolute;inset:0;background:var(--green);transform:translateX(-100%);animation:scrollLine 2.2s infinite}
-@keyframes scrollLine{to{transform:translateX(100%)}}
-
-/* ============ STATS ============ */
-.stats{padding:clamp(48px,6vw,80px) 0}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
-.stat{padding:12px 40px;border-left:1px solid var(--line-dark)}
-.stat:first-child{border-left:0;padding-left:0}
-.stat .num{font-family:var(--font-head);font-size:clamp(52px,5.4vw,78px);line-height:1;color:var(--white);display:flex;align-items:baseline;gap:4px}
-.stat .num small{font-size:.5em;color:var(--green)}
-.stat .lbl{font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-top:14px}
-.stat .sub{font-size:13px;color:rgba(255,255,255,.5);margin-top:4px;font-weight:300}
-
-/* ============ MARQUEE ============ */
-.marquee{overflow:hidden;background:var(--black);padding-bottom:6px}
-.marquee-track{display:flex;gap:6px;width:max-content;animation:marquee 46s linear infinite}
-.marquee:hover .marquee-track{animation-play-state:paused}
-.marquee .ph{width:clamp(220px,24vw,380px);aspect-ratio:4/3;flex:none}
-.marquee .ph img{filter:grayscale(1) brightness(.85);transition:filter .6s,transform 1s var(--ease)}
-.marquee .ph:hover img{filter:none}
-@keyframes marquee{to{transform:translateX(-50%)}}
-
-/* ============ ABOUT ============ */
-.about{overflow:hidden}
-.about .wm{position:absolute;right:-10px;bottom:-30px;font-family:var(--font-head);font-size:clamp(160px,22vw,320px);line-height:1;color:#000;opacity:.035;pointer-events:none;user-select:none}
-.about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(48px,8vw,120px);align-items:center;position:relative}
-.about-media{position:relative;padding:28px 56px 72px 28px}
-.about-media .frame{position:absolute;left:0;top:0;right:56px;bottom:72px;border:1px solid var(--ink);opacity:.25;pointer-events:none}
-.about-media .main{aspect-ratio:4/5;border-radius:2px;position:relative;z-index:1}
-.about-media .small{position:absolute;right:0;bottom:0;width:48%;aspect-ratio:1;border:10px solid var(--white);border-radius:2px;box-shadow:0 40px 80px rgba(0,0,0,.16);z-index:2}
-.exp-card{position:absolute;left:-16px;bottom:120px;z-index:3;background:var(--black);color:var(--white);padding:26px 28px 24px;border-radius:2px;min-width:170px;box-shadow:0 30px 60px rgba(0,0,0,.2)}
-.exp-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--green)}
-.exp-card b{display:flex;align-items:baseline;gap:2px;font-family:var(--font-head);font-size:56px;font-weight:400;line-height:1}
-.exp-card b small{font-size:26px;color:var(--green)}
-.exp-card span{display:block;margin-top:8px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7)}
-.about-caption{display:flex;align-items:center;gap:12px;margin-top:22px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
-.about-caption::before{content:"";width:28px;height:1px;background:var(--green)}
-.about-copy .h2{margin-bottom:24px}
-.pull{margin:34px 0 38px;padding:6px 0 6px 26px;border-left:2px solid var(--green);font-family:var(--font-head);font-size:clamp(22px,2vw,27px);line-height:1.35;color:var(--ink)}
-.pull cite{display:block;margin-top:12px;font-family:var(--font-body);font-style:normal;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
-.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 36px;margin-bottom:42px}
-.feat{padding:22px 0 24px;border-top:1px solid var(--line)}
-.feat .n{font-family:var(--font-head);font-size:22px;color:var(--green-dark);line-height:1;margin-bottom:12px}
-.feat h4{font-size:15.5px;font-weight:600;margin-bottom:6px;letter-spacing:.01em}
-.feat p{font-size:14px;color:var(--grey);font-weight:300;line-height:1.6}
-.about-actions{display:flex;align-items:center;gap:32px;flex-wrap:wrap}
-.checks{display:grid;gap:14px;margin:30px 0 40px}
-.checks li{display:flex;gap:14px;align-items:flex-start;font-size:15.5px;color:#333}
-.checks li::before{content:"";flex:none;width:22px;height:22px;border-radius:50%;background:var(--green-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235FA544' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/12px no-repeat;margin-top:2px}
-.bg-black .checks li{color:rgba(255,255,255,.82)}
-.bg-black .checks li::before{background-color:rgba(118,196,87,.18)}
-
-/* ============ SERVICES ============ */
-.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-left:1px solid var(--line)}
-.service{padding:40px 32px 48px;border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;background:var(--white);transition:background .4s}
-.service::before{content:"";position:absolute;left:0;top:-1px;height:2px;width:0;background:var(--green);transition:width .6s var(--ease)}
-.service:hover::before{width:100%}
-.service:hover{background:var(--off)}
-.service .num{font-family:var(--font-head);font-size:48px;color:var(--green);line-height:1;margin-bottom:60px}
-.service h3{font-size:24px;margin-bottom:14px}
-.service p{font-size:14.5px;color:var(--grey);margin-bottom:28px;font-weight:300}
-.link{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
-.link svg{width:14px;height:14px;transition:transform .4s var(--ease)}
-.link:hover svg{transform:translateX(5px)}
-.link:hover{color:var(--green-dark)}
-
-/* ============ PORTFOLIO ============ */
-.folio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 24px}
-.folio{display:block}
-.folio .ph{aspect-ratio:4/5;border-radius:2px;margin-bottom:18px}
-.folio .ph .tag{position:absolute;top:14px;left:14px;z-index:2;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:7px 11px;background:rgba(255,255,255,.92);color:var(--ink);border-radius:2px}
-.folio .meta{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:8px}
-.folio .meta b{color:var(--green-dark);font-weight:600}
-.folio h3{font-size:26px;margin-bottom:6px;transition:color .3s}
-.folio:hover h3{color:var(--green-dark)}
-.folio p{font-size:14.5px;color:var(--grey);font-weight:300}
-.folio:nth-child(3n+2){transform:translateY(40px)}
-.folio-foot{text-align:center;margin-top:clamp(60px,7vw,100px)}
-
-/* ============ WHY / PROCESS ============ */
-.why-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,7vw,100px);align-items:stretch}
-.why-copy .h2{margin-bottom:22px}
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
-.pillar{padding:26px 24px 26px;border:1px solid var(--line-dark);border-radius:2px;position:relative;transition:border-color .4s,background .4s}
-.pillar::after{content:"";position:absolute;left:24px;bottom:0;height:1px;width:0;background:var(--green);transition:width .5s var(--ease)}
-.pillar:hover{border-color:rgba(118,196,87,.5);background:rgba(255,255,255,.03)}
-.pillar:hover::after{width:calc(100% - 48px)}
-.pillar svg{width:26px;height:26px;color:var(--green);margin-bottom:18px}
-.pillar h4{font-size:15.5px;font-weight:600;margin-bottom:8px;color:var(--white)}
-.pillar p{font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.62);font-weight:300}
-.why-media{position:relative;padding:0 0 56px 0;min-height:420px}
-.why-media .ph{position:absolute;inset:0 0 56px 0;border-radius:2px}
-.why-media .ph img{filter:saturate(.9)}
-.why-media .edge{position:absolute;right:-18px;top:-18px;width:60%;height:50%;border-right:1px solid var(--green);border-top:1px solid var(--green);opacity:.7;pointer-events:none}
-.why-card{position:absolute;left:-28px;bottom:0;z-index:2;background:var(--green);color:var(--black);padding:28px 30px;border-radius:2px;max-width:320px;box-shadow:0 30px 60px rgba(0,0,0,.35)}
-.why-card .q{font-family:var(--font-head);font-size:27px;line-height:1.2}
-.why-card span{display:block;margin-top:12px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;opacity:.75}
-.process-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-top:clamp(70px,9vw,120px);padding-top:clamp(50px,6vw,80px);border-top:1px solid var(--line-dark);margin-bottom:clamp(36px,5vw,56px)}
-.process-head .h2{font-size:clamp(34px,4vw,52px);margin-bottom:0}
-.process-head p{max-width:40ch;font-size:15.5px;font-weight:300}
-.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
-.process-grid::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--line-dark)}
-.step{position:relative;padding:36px 28px 10px 0}
-.step::before{content:"";position:absolute;left:0;top:-4px;width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px rgba(118,196,87,.18)}
-.step .num{font-family:var(--font-head);font-size:72px;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.28);margin-bottom:18px;transition:color .4s,-webkit-text-stroke .4s}
-.step:hover .num{color:var(--green);-webkit-text-stroke:1px var(--green)}
-.step h3{font-size:26px;margin-bottom:10px}
-.step p{font-size:14.5px;font-weight:300;max-width:28ch}
-.step .dur{display:inline-block;margin-top:16px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
-
-/* ============ TESTIMONIALS ============ */
-.testi-wrap{position:relative}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.testi{background:var(--off);padding:44px 36px 36px;border-radius:2px;position:relative;border:1px solid transparent;transition:border-color .3s,background .3s}
-.testi:hover{border-color:var(--line);background:var(--white)}
-.testi .q{font-family:var(--font-head);font-size:84px;line-height:.6;color:var(--green);margin-bottom:28px}
-.testi p{font-size:15.5px;color:#333;font-weight:300;margin-bottom:28px}
-.testi p em{font-style:normal;font-size:12px;color:#999}
-.testi .who{display:flex;align-items:center;gap:14px}
-.testi .av{width:44px;height:44px;border-radius:50%;background:var(--black);color:var(--green);display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:18px}
-.testi .who b{display:block;font-size:14px;font-weight:600}
-.testi .who span{font-size:12px;color:var(--grey);letter-spacing:.06em;text-transform:uppercase}
-.stars{display:flex;gap:3px;margin-bottom:16px}
-.stars svg{width:14px;height:14px;fill:var(--green)}
-.testi-nav{display:none;gap:10px;justify-content:center;margin-top:24px}
-.testi-nav button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.testi-nav button svg{width:16px;height:16px}
-
-/* ============ CONSULT ============ */
-.consult-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,100px);align-items:center}
-.form-card{background:var(--white);border:1px solid var(--line);padding:clamp(28px,4vw,48px);border-radius:2px;box-shadow:0 30px 80px rgba(0,0,0,.06)}
-.form-card h3{font-size:30px;margin-bottom:6px}
-.form-card .note{font-size:13px;color:var(--grey);margin-bottom:28px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.field{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
-.field label{font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#444}
-.field input,.field select,.field textarea{width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:2px;background:#fff;outline:none;transition:border-color .3s;font-size:15px}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--green)}
-.field textarea{min-height:120px;resize:vertical}
-.form-card .btn{width:100%;justify-content:center;margin-top:8px}
-.call-line{font-size:15.5px;color:#333;font-weight:500}
-.call-line a{color:var(--green-dark);margin-left:6px}
-
-/* ============ CTA BAND ============ */
-.cta-band{position:relative;overflow:hidden;color:var(--white);background:var(--black);padding:clamp(72px,9vw,130px) 0;border-top:1px solid var(--green)}
-.cta-band .bg{position:absolute;inset:0}
-.cta-band .bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.8)}
-.cta-band .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.9) 0%,rgba(0,0,0,.75) 55%,rgba(0,0,0,.55) 100%)}
-.cta-band .container{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(40px,6vw,90px);align-items:center}
-.cta-band .eyebrow{color:var(--green)}
-.cta-band h2{font-size:clamp(40px,5.2vw,72px);max-width:14ch;margin-bottom:20px}
-.cta-band h2 em{font-style:normal;color:var(--green)}
-.cta-band .lead{color:rgba(255,255,255,.72);max-width:48ch}
-.trust{display:flex;flex-wrap:wrap;gap:14px 32px;margin-top:34px}
-.trust li{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.85)}
-.trust li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(118,196,87,.2)}
-.cta-card{background:var(--white);color:var(--ink);border-radius:2px;padding:clamp(28px,3.2vw,44px);box-shadow:0 40px 90px rgba(0,0,0,.45);position:relative}
-.cta-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--green)}
-.cta-card .lbl{font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--green-dark);margin-bottom:14px}
-.cta-card .phone{display:block;font-family:var(--font-head);font-size:clamp(30px,2.8vw,40px);line-height:1.1;color:var(--ink);margin-bottom:6px;transition:color .3s}
-.cta-card .phone:hover{color:var(--green-dark)}
-.cta-card .hrs{font-size:14px;color:var(--grey);margin-bottom:26px}
-.cta-card .btn{width:100%;justify-content:center}
-.cta-card .alt{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:16px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
-.cta-card .alt svg{width:16px;height:16px;color:var(--green-dark)}
-.cta-card .alt:hover{color:var(--green-dark)}
-
-/* ============ FOOTER ============ */
-.footer{padding:clamp(60px,8vw,100px) 0 0}
-.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:48px;padding-bottom:64px;border-bottom:1px solid var(--line-dark)}
-.footer .logo-tile{display:inline-block;margin-bottom:24px}
-.footer .logo-tile img{height:54px}
-.footer p{font-size:14.5px;font-weight:300;max-width:36ch}
-.footer h4{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:24px;font-weight:600}
-.footer ul li{margin-bottom:12px;font-size:14.5px;color:rgba(255,255,255,.72)}
-.footer ul li a{transition:color .3s}
-.footer ul li a:hover{color:var(--green)}
-.footer .contact li{display:flex;gap:12px;align-items:flex-start}
-.footer .contact svg{width:16px;height:16px;color:var(--green);flex:none;margin-top:4px}
-.footer .contact em{font-style:normal;font-size:11px;color:var(--green);letter-spacing:.1em;text-transform:uppercase;display:block;opacity:.8}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:28px 0;font-size:12.5px;color:rgba(255,255,255,.5)}
-.footer-bottom ul{display:flex;gap:24px}
-.footer-bottom a:hover{color:var(--green)}
-.footer-bottom .credit a{color:rgba(255,255,255,.75)}
-
-/* ============ FLOATING ============ */
-.float{position:fixed;right:20px;bottom:20px;z-index:1500;display:flex;flex-direction:column;gap:12px}
-.float a{width:54px;height:54px;border-radius:50%;background:var(--green);color:var(--black);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(118,196,87,.4);transition:transform .4s var(--ease),background .3s}
-.float a:hover{transform:translateY(-4px);background:var(--black);color:var(--green)}
-.float svg{width:22px;height:22px}
-
-/* ============ TOAST ============ */
-.toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);z-index:3000;background:var(--black);color:#fff;padding:14px 22px;border-radius:6px;font-size:13.5px;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;border-left:3px solid var(--green);max-width:calc(100vw - 32px);text-align:center}
-.toast.show{opacity:1;transform:translate(-50%,0)}
-
-/* ============ REVEAL ============ */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-.reveal.in-view{opacity:1;transform:none}
-.reveal[data-delay="1"]{transition-delay:.12s}
-.reveal[data-delay="2"]{transition-delay:.24s}
-.reveal[data-delay="3"]{transition-delay:.36s}
-@media (prefers-reduced-motion:reduce){
-  .reveal{opacity:1;transform:none;transition:none}
-  .marquee-track{animation:none}
-  .hero .ph img{animation:none}
-  html{scroll-behavior:auto}
-}
-
-/* ============ RESPONSIVE ============ */
-@media (max-width:1100px){
-  .folio-grid{grid-template-columns:repeat(2,1fr)}
-  .folio:nth-child(3n+2){transform:none}
-  .folio:nth-child(2n){transform:translateY(40px)}
-  .stats-grid{grid-template-columns:repeat(2,1fr);row-gap:40px}
-  .stat:nth-child(3){border-left:0;padding-left:0}
-  .services-grid{grid-template-columns:repeat(2,1fr)}
-  .footer-grid{grid-template-columns:1fr 1fr}
-}
-@media (max-width:900px){
-  :root{--gutter:16px}
-  .nav-links,.nav .nav-cta .btn{display:none}
-  .burger{display:block}
-  .nav .container{height:72px}
-  .logo img,.nav.scrolled .logo img{height:34px}
-  .hero .container{padding-top:96px;padding-bottom:40px;text-align:center}
-  .hero-meta{justify-content:center}
-  .hero .eyebrow{justify-content:center}
-  .hero h1{font-size:clamp(36px,10.6vw,48px);line-height:1.1}
-  .hero h1 br{display:none}
-  .hero p{margin-left:auto;margin-right:auto}
-  .hero-actions{justify-content:center}
-  .hero-side{display:none}
-  .scroll-hint{display:none}
-  .about-grid,.why-grid,.consult-grid{grid-template-columns:1fr}
-  .about-media{padding:16px 36px 56px 16px}
-  .about-media .frame{right:36px;bottom:56px}
-  .exp-card{left:0;bottom:80px;padding:18px 20px 16px;min-width:140px}
-  .exp-card b{font-size:42px}
-  .about .wm{bottom:-10px;font-size:140px}
-  .why-media{min-height:320px;margin-top:8px}
-  .why-media .edge{display:none}
-  .why-card{left:0;padding:20px 22px;max-width:260px}
-  .why-card .q{font-size:22px}
-  .process-grid{grid-template-columns:1fr;gap:0}
-  .process-grid::before{left:4px;right:auto;top:0;bottom:0;width:1px;height:auto}
-  .step{padding:0 0 40px 36px}
-  .step::before{left:0;top:6px}
-  .step .num{font-size:56px;margin-bottom:10px}
-  .testi-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding-bottom:6px;scrollbar-width:none;margin:0 calc(var(--gutter) * -1);padding-left:var(--gutter);padding-right:var(--gutter)}
-  .testi-grid::-webkit-scrollbar{display:none}
-  .testi{flex:0 0 86%;scroll-snap-align:center}
-  .testi-nav{display:flex}
-  .form-row{grid-template-columns:1fr}
-  .cta-band .container{grid-template-columns:1fr}
-  .cta-band .container > *{min-width:0}
-  .cta-card .btn{white-space:normal;text-align:center;padding:14px 20px;line-height:1.4}
-  .cta-band .bg::after{background:linear-gradient(180deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.8) 100%)}
-  .footer-bottom{flex-direction:column;align-items:flex-start}
-  .float{right:12px;bottom:12px}
-}
-@media (max-width:600px){
-  .feat-grid{grid-template-columns:1fr}
-  .pillars{grid-template-columns:1fr}
-  .services-grid{grid-template-columns:1fr}
-  .folio-grid{grid-template-columns:1fr}
-  .folio:nth-child(2n){transform:none}
-  .stats-grid{grid-template-columns:1fr 1fr;row-gap:32px}
-  .stat{padding:0 20px}
-  .stat:nth-child(odd){border-left:0;padding-left:0}
-  .footer-grid{grid-template-columns:1fr;gap:36px}
-  .hero-actions .btn{width:100%;justify-content:center}
-}
-</style>
+<link rel="stylesheet" href="../../assets/v1/v1.css">
 </head>
-<body>
+<body data-page="home">
 
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="container">
     <a class="logo" href="#top"><img class="logo-light" src="../../assets/logo-white.png" alt="MV Design Studio"><img class="logo-dark" src="../../assets/logo-black.png" alt="MV Design Studio"></a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#top" class="active">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#contact">Contact</a>
+      <a href="../../home/v1/index.html" data-page="home" class="active">Home</a>
+      <a href="../../about/v1/index.html" data-page="about">About</a>
+      <a href="../../services/v1/index.html" data-page="services">Services</a>
+      <a href="../../portfolio/v1/index.html" data-page="portfolio">Portfolio</a>
+      <a href="../../testimonials/v1/index.html" data-page="testimonials">Testimonials</a>
+      <a href="../../contact/v1/index.html" data-page="contact">Contact</a>
     </nav>
     <div class="nav-cta">
-      <a href="#contact" class="btn btn-nav">Get Consultation</a>
+      <a href="../../contact/v1/index.html" class="btn btn-nav">Get Consultation</a>
       <button class="burger" type="button" aria-label="Menu" onclick="document.body.classList.toggle('nav-open');updateNav()"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -461,14 +40,14 @@ body.nav-open .mm-links a:nth-child(6){transition-delay:.42s}
   </div>
   <div class="mm-eyebrow">Menu</div>
   <nav class="mm-links">
-    <a href="#top" onclick="closeMenu()"><span>01</span>Home</a>
-    <a href="#about" onclick="closeMenu()"><span>02</span>About</a>
-    <a href="#services" onclick="closeMenu()"><span>03</span>Services</a>
-    <a href="#portfolio" onclick="closeMenu()"><span>04</span>Portfolio</a>
-    <a href="#testimonials" onclick="closeMenu()"><span>05</span>Testimonials</a>
-    <a href="#contact" onclick="closeMenu()"><span>06</span>Contact</a>
+    <a href="../../home/v1/index.html" data-page="home" onclick="closeMenu()"><span>01</span>Home</a>
+    <a href="../../about/v1/index.html" data-page="about"><span>02</span>About</a>
+    <a href="../../services/v1/index.html" data-page="services"><span>03</span>Services</a>
+    <a href="../../portfolio/v1/index.html" data-page="portfolio"><span>04</span>Portfolio</a>
+    <a href="../../testimonials/v1/index.html" data-page="testimonials"><span>05</span>Testimonials</a>
+    <a href="../../contact/v1/index.html" data-page="contact"><span>06</span>Contact</a>
   </nav>
-  <a href="#contact" class="btn btn-white" onclick="closeMenu()">Get Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  <a href="../../contact/v1/index.html" class="btn btn-white">Get Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 </aside>
 
 <main id="top">
@@ -553,7 +132,7 @@ body.nav-open .mm-links a:nth-child(6){transition-delay:.42s}
           <div class="feat"><div class="n">04</div><h4>Always available</h4><p>Open 24 hours, so you reach us whenever you need to.</p></div>
         </div>
         <div class="about-actions">
-          <a href="#" class="btn btn-black">Learn More About Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="../../about/v1/index.html" class="btn btn-black">Learn More About Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           <a href="#process" class="link">Our Process <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -570,13 +149,13 @@ body.nav-open .mm-links a:nth-child(6){transition-delay:.42s}
         <h2 class="h2">Our Expertise</h2>
         <p class="lead">Comprehensive design and build services tailored to the way you live and work.</p>
       </div>
-      <a href="#" class="link">View All Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="../../services/v1/index.html" class="link">View All Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
     <div class="services-grid">
-      <article class="service reveal"><div class="num">01</div><h3>Architecture Design</h3><p>Bespoke residential and commercial architecture, from concept sketches and 3D visualisation to approvals and construction drawings.</p><a href="#" class="link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
-      <article class="service reveal" data-delay="1"><div class="num">02</div><h3>Interior Design</h3><p>Mood boards, space planning, lighting, materials and custom furniture, curated into interiors that feel effortless and refined.</p><a href="#" class="link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
-      <article class="service reveal" data-delay="2"><div class="num">03</div><h3>Turnkey Execution</h3><p>Single-point project management from site to handover: civil work, MEP, finishes and fit-out, delivered on schedule and on budget.</p><a href="#" class="link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
-      <article class="service reveal" data-delay="3"><div class="num">04</div><h3>Furniture &amp; Décor</h3><p>Custom-made furniture, modular kitchens and wardrobes, art and styling to complete every room down to the last detail.</p><a href="#" class="link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+      <article class="service reveal"><div class="num">01</div><h3>Architecture Design</h3><p>Bespoke residential and commercial architecture, from concept sketches and 3D visualisation to approvals and construction drawings.</p><a href="../../services/v1/index.html#architecture" class="link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+      <article class="service reveal" data-delay="1"><div class="num">02</div><h3>Interior Design</h3><p>Mood boards, space planning, lighting, materials and custom furniture, curated into interiors that feel effortless and refined.</p><a href="../../services/v1/index.html#interiors" class="link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+      <article class="service reveal" data-delay="2"><div class="num">03</div><h3>Turnkey Execution</h3><p>Single-point project management from site to handover: civil work, MEP, finishes and fit-out, delivered on schedule and on budget.</p><a href="../../services/v1/index.html#turnkey" class="link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+      <article class="service reveal" data-delay="3"><div class="num">04</div><h3>Furniture &amp; Décor</h3><p>Custom-made furniture, modular kitchens and wardrobes, art and styling to complete every room down to the last detail.</p><a href="../../services/v1/index.html#furniture" class="link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
     </div>
   </div>
 </section>
@@ -590,14 +169,14 @@ body.nav-open .mm-links a:nth-child(6){transition-delay:.42s}
       <p class="lead" style="margin:0 auto">A glimpse of the homes, offices and spaces we have designed and built for our clients.</p>
     </div>
     <div class="folio-grid">
-      <a href="#" class="folio reveal"><div class="ph"><span class="tag">Residential</span><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Interior</b> • 2025</div><h3>The Verdant Residence</h3><p>A 4,200 sq ft villa interior in warm oak, stone and muted greens.</p></a>
-      <a href="#" class="folio reveal" data-delay="1"><div class="ph"><span class="tag">Architecture</span><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Architecture</b> • 2024</div><h3>Courtyard House</h3><p>A contemporary farmhouse planned around a central landscaped courtyard.</p></a>
-      <a href="#" class="folio reveal" data-delay="2"><div class="ph"><span class="tag">Commercial</span><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Workspace</b> • 2024</div><h3>Studio Office, Gurugram</h3><p>A light-filled 12,000 sq ft workspace for a growing design-led brand.</p></a>
-      <a href="#" class="folio reveal"><div class="ph"><span class="tag">Residential</span><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Interior</b> • 2023</div><h3>Penthouse 21</h3><p>Monochrome luxury with floor-to-ceiling glazing and bespoke joinery.</p></a>
-      <a href="#" class="folio reveal" data-delay="1"><div class="ph"><span class="tag">Turnkey</span><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Turnkey</b> • 2023</div><h3>Maple Grove Villa</h3><p>Design-and-build delivery of a two-level family home in ten months.</p></a>
-      <a href="#" class="folio reveal" data-delay="2"><div class="ph"><span class="tag">Hospitality</span><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Interior</b> • 2022</div><h3>The Lounge, New Delhi</h3><p>An intimate hospitality interior in brass, velvet and green marble.</p></a>
+      <a href="../../portfolio/v1/index.html" class="folio reveal"><div class="ph"><span class="tag">Residential</span><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Interior</b> • 2025</div><h3>The Verdant Residence</h3><p>A 4,200 sq ft villa interior in warm oak, stone and muted greens.</p></a>
+      <a href="../../portfolio/v1/index.html" class="folio reveal" data-delay="1"><div class="ph"><span class="tag">Architecture</span><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Architecture</b> • 2024</div><h3>Courtyard House</h3><p>A contemporary farmhouse planned around a central landscaped courtyard.</p></a>
+      <a href="../../portfolio/v1/index.html" class="folio reveal" data-delay="2"><div class="ph"><span class="tag">Commercial</span><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Workspace</b> • 2024</div><h3>Studio Office, Gurugram</h3><p>A light-filled 12,000 sq ft workspace for a growing design-led brand.</p></a>
+      <a href="../../portfolio/v1/index.html" class="folio reveal"><div class="ph"><span class="tag">Residential</span><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Interior</b> • 2023</div><h3>Penthouse 21</h3><p>Monochrome luxury with floor-to-ceiling glazing and bespoke joinery.</p></a>
+      <a href="../../portfolio/v1/index.html" class="folio reveal" data-delay="1"><div class="ph"><span class="tag">Turnkey</span><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Turnkey</b> • 2023</div><h3>Maple Grove Villa</h3><p>Design-and-build delivery of a two-level family home in ten months.</p></a>
+      <a href="../../portfolio/v1/index.html" class="folio reveal" data-delay="2"><div class="ph"><span class="tag">Hospitality</span><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Interior</b> • 2022</div><h3>The Lounge, New Delhi</h3><p>An intimate hospitality interior in brass, velvet and green marble.</p></a>
     </div>
-    <div class="folio-foot reveal"><a href="#" class="btn btn-outline-b">View Full Portfolio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="folio-foot reveal"><a href="../../portfolio/v1/index.html" class="btn btn-outline-b">View Full Portfolio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
   </div>
 </section>
 
@@ -737,11 +316,11 @@ body.nav-open .mm-links a:nth-child(6){transition-delay:.42s}
       </div>
       <div>
         <h4>Quick Links</h4>
-        <ul><li><a href="#about">About Us</a></li><li><a href="#services">Services</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#testimonials">Testimonials</a></li><li><a href="#contact">Contact</a></li></ul>
+        <ul><li><a href="../../about/v1/index.html">About Us</a></li><li><a href="../../services/v1/index.html">Services</a></li><li><a href="../../portfolio/v1/index.html">Portfolio</a></li><li><a href="../../testimonials/v1/index.html">Testimonials</a></li><li><a href="../../contact/v1/index.html">Contact</a></li></ul>
       </div>
       <div>
         <h4>Our Services</h4>
-        <ul><li><a href="#services">Architecture Design</a></li><li><a href="#services">Interior Design</a></li><li><a href="#services">Turnkey Execution</a></li><li><a href="#services">Furniture &amp; Décor</a></li></ul>
+        <ul><li><a href="../../services/v1/index.html#architecture">Architecture Design</a></li><li><a href="../../services/v1/index.html#interiors">Interior Design</a></li><li><a href="../../services/v1/index.html#turnkey">Turnkey Execution</a></li><li><a href="../../services/v1/index.html#furniture">Furniture &amp; Décor</a></li></ul>
       </div>
       <div>
         <h4>Contact Us</h4>
@@ -771,66 +350,6 @@ body.nav-open .mm-links a:nth-child(6){transition-delay:.42s}
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="star" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></defs></svg>
 
-<script>
-// Transparent nav over hero; turns white once scrolled
-function updateNav(){
-  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>10);
-}
-(function(){
-  window.addEventListener('scroll',updateNav,{passive:true});updateNav();
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu()});
-
-  // Scroll reveal
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var items=document.querySelectorAll('.reveal');
-  if('IntersectionObserver' in window && !reduce){
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target)}});
-    },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
-    items.forEach(function(el){io.observe(el)});
-  }else{items.forEach(function(el){el.classList.add('in-view')})}
-
-  // Count-up stats
-  var counters=document.querySelectorAll('[data-count]');
-  function animate(el){
-    var target=+el.getAttribute('data-count'),start=null,dur=1600;
-    function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1);var e=1-Math.pow(1-p,3);el.textContent=Math.round(target*e);if(p<1)requestAnimationFrame(step)}
-    requestAnimationFrame(step);
-  }
-  if('IntersectionObserver' in window && !reduce){
-    var cio=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){animate(e.target);cio.unobserve(e.target)}})},{threshold:.5});
-    counters.forEach(function(c){cio.observe(c)});
-  }else{counters.forEach(function(c){c.textContent=c.getAttribute('data-count')})}
-
-  // Active nav link
-  var sections=['about','services','portfolio','testimonials','contact'].map(function(id){return document.getElementById(id)});
-  var links=document.querySelectorAll('.nav-links a');
-  if('IntersectionObserver' in window){
-    var sio=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id)})}});
-    },{rootMargin:'-40% 0px -55% 0px'});
-    sections.forEach(function(s){if(s)sio.observe(s)});
-  }
-})();
-
-function closeMenu(){document.body.classList.remove('nav-open');updateNav()}
-
-function slideTesti(dir){
-  var g=document.getElementById('testiGrid');
-  var card=g.querySelector('.testi');
-  g.scrollBy({left:dir*(card.offsetWidth+16),behavior:'smooth'});
-}
-
-function showToast(msg){
-  var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
-  clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show')},3200);
-}
-
-function mockSubmit(e){
-  e.preventDefault();
-  showToast('Mockup only — this form is not connected yet. In the live site, this will send your request to MV Design Studio.');
-  return false;
-}
-</script>
+<script src="../../assets/v1/v1.js"></script>
 </body>
 </html>

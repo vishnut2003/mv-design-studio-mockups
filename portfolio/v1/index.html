@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MV Design Studio — Portfolio (Mockup v1)</title>
+<meta name="description" content="Design mockup v1 of the MV Design Studio Portfolio page, prepared by Web Spider Solutions for client review.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/v1/v1.css">
+<style>
+/* ============ PORTFOLIO PAGE ONLY ============ */
+.feature{position:relative;border-radius:2px;overflow:hidden;color:var(--white)}
+.feature .ph{aspect-ratio:21/9}
+.feature .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.8) 100%)}
+.feature .cap{position:absolute;left:clamp(20px,4vw,48px);right:clamp(20px,4vw,48px);bottom:clamp(20px,4vw,48px);z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:32px}
+.feature .cap .meta{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:10px;font-weight:600}
+.feature .cap h2{font-size:clamp(30px,4vw,54px);margin-bottom:10px}
+.feature .cap p{font-size:15px;color:rgba(255,255,255,.78);font-weight:300;max-width:48ch}
+.feature .facts{display:flex;gap:28px;flex:none}
+.feature .facts div{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.feature .facts b{display:block;font-family:var(--font-head);font-size:26px;font-weight:400;color:var(--white);letter-spacing:0;text-transform:none;line-height:1.1;margin-bottom:2px}
+.feature .badge{position:absolute;right:clamp(20px,4vw,48px);top:clamp(20px,4vw,48px);z-index:2;background:var(--green);color:var(--black);padding:10px 14px;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;border-radius:2px}
+.folio .ph .tag.year{left:auto;right:14px;background:rgba(0,0,0,.72);color:var(--white)}
+.folio-note{margin-top:40px;text-align:center;font-size:12.5px;color:var(--grey)}
+.empty{display:none;text-align:center;padding:60px 0;color:var(--grey);font-size:15px}
+.quote-band{text-align:center}
+.quote-band .q{font-family:var(--font-head);font-size:110px;line-height:.5;color:var(--green);margin-bottom:34px}
+.quote-band blockquote{font-family:var(--font-head);font-size:clamp(26px,3.2vw,42px);line-height:1.3;max-width:26ch;margin:0 auto 28px;color:var(--ink)}
+.quote-band .who{justify-content:center}
+@media (max-width:900px){
+  .feature .ph{aspect-ratio:4/5}
+  .feature .cap{flex-direction:column;align-items:flex-start;left:16px;right:16px;bottom:16px}
+  .feature .facts{gap:20px}
+  .feature .badge{right:16px;top:16px}
+}
+</style>
+</head>
+<body data-page="portfolio">
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="container">
+    <a class="logo" href="../../home/v1/index.html"><img class="logo-light" src="../../assets/logo-white.png" alt="MV Design Studio"><img class="logo-dark" src="../../assets/logo-black.png" alt="MV Design Studio"></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="../../home/v1/index.html" data-page="home">Home</a>
+      <a href="../../about/v1/index.html" data-page="about">About</a>
+      <a href="../../services/v1/index.html" data-page="services">Services</a>
+      <a href="../../portfolio/v1/index.html" data-page="portfolio" class="active">Portfolio</a>
+      <a href="../../testimonials/v1/index.html" data-page="testimonials">Testimonials</a>
+      <a href="../../contact/v1/index.html" data-page="contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="../../contact/v1/index.html" class="btn btn-nav">Get Consultation</a>
+      <button class="burger" type="button" aria-label="Menu" onclick="document.body.classList.toggle('nav-open');updateNav()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MOBILE SIDEBAR MENU ============ -->
+<div class="menu-backdrop" onclick="closeMenu()"></div>
+<aside class="mobile-menu" aria-label="Menu">
+  <div class="mm-head">
+    <img src="../../assets/logo-white.png" alt="MV Design Studio">
+    <button class="mm-close" type="button" aria-label="Close menu" onclick="closeMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
+  <div class="mm-eyebrow">Menu</div>
+  <nav class="mm-links">
+    <a href="../../home/v1/index.html" data-page="home"><span>01</span>Home</a>
+    <a href="../../about/v1/index.html" data-page="about"><span>02</span>About</a>
+    <a href="../../services/v1/index.html" data-page="services"><span>03</span>Services</a>
+    <a href="../../portfolio/v1/index.html" data-page="portfolio"><span>04</span>Portfolio</a>
+    <a href="../../testimonials/v1/index.html" data-page="testimonials"><span>05</span>Testimonials</a>
+    <a href="../../contact/v1/index.html" data-page="contact"><span>06</span>Contact</a>
+  </nav>
+  <a href="../../contact/v1/index.html" class="btn btn-white">Get Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</aside>
+
+<main id="top">
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="ph"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=80" alt="" onerror="this.remove()"></div>
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../home/v1/index.html">Home</a><span class="sep">/</span><span class="cur">Portfolio</span></nav>
+    <div class="eyebrow">Our Work</div>
+    <h1>Selected work, <br><em>1996 to today.</em></h1>
+    <p class="lead">Homes, workplaces and hospitality spaces we have designed and built for our clients. Every project shown here is a placeholder until MV Design Studio shares its own photography.</p>
+  </div>
+</section>
+
+<!-- ============ FEATURED PROJECT ============ -->
+<section class="section" id="featured" style="padding-bottom:0">
+  <div class="container">
+    <div class="feature reveal">
+      <span class="badge">Featured project</span>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2000&q=80" alt="" onerror="this.remove()"></div>
+      <div class="cap">
+        <div>
+          <div class="meta">Residential Interior · Gurugram · 2025</div>
+          <h2>The Verdant Residence</h2>
+          <p>A 4,200 sq ft villa interior in warm oak, stone and muted greens, designed and built by one team over ten months. <em style="font-style:normal;font-size:12px;color:rgba(255,255,255,.55)">(placeholder project)</em></p>
+        </div>
+        <div class="facts">
+          <div><b>4,200</b>sq ft</div>
+          <div><b>10</b>months</div>
+          <div><b>Turnkey</b>scope</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECT GRID ============ -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">All Projects</div>
+      <h2 class="h2">Browse by category</h2>
+    </div>
+    <div class="filter-bar reveal" role="tablist" aria-label="Filter projects">
+      <button type="button" class="is-active" data-filter="all" data-label="All" onclick="filterFolio(this)">All <span class="c">12</span></button>
+      <button type="button" data-filter="residential" data-label="Residential" onclick="filterFolio(this)">Residential <span class="c">3</span></button>
+      <button type="button" data-filter="commercial" data-label="Commercial" onclick="filterFolio(this)">Commercial <span class="c">3</span></button>
+      <button type="button" data-filter="architecture" data-label="Architecture" onclick="filterFolio(this)">Architecture <span class="c">2</span></button>
+      <button type="button" data-filter="turnkey" data-label="Turnkey" onclick="filterFolio(this)">Turnkey <span class="c">2</span></button>
+      <button type="button" data-filter="hospitality" data-label="Hospitality" onclick="filterFolio(this)">Hospitality <span class="c">2</span></button>
+    </div>
+    <p class="folio-count reveal" id="folioCount" aria-live="polite">Showing all 12 projects</p>
+    <div class="folio-grid no-stagger" id="folioGrid">
+      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="residential"><div class="ph"><span class="tag">Residential</span><span class="tag year">2025</span><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Interior</b> • Gurugram</div><h3>The Verdant Residence</h3><p>A 4,200 sq ft villa interior in warm oak, stone and muted greens.</p></a>
+      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="architecture" data-delay="1"><div class="ph"><span class="tag">Architecture</span><span class="tag year">2024</span><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Architecture</b> • Chhatarpur</div><h3>Courtyard House</h3><p>A contemporary farmhouse planned around a central landscaped courtyard.</p></a>
+      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="commercial" data-delay="2"><div class="ph"><span class="tag">Commercial</span><span class="tag year">2024</span><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Workspace</b> • Gurugram</div><h3>Studio Office, Gurugram</h3><p>A light-filled 12,000 sq ft workspace for a growing design-led brand.</p></a>
+      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="residential"><div class="ph"><span class="tag">Residential</span><span class="tag year">2023</span><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Interior</b> • New Delhi</div><h3>Penthouse 21</h3><p>Monochrome luxury with floor-to-ceiling glazing and bespoke joinery.</p></a>
+      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="turnkey" data-delay="1"><div class="ph"><span class="tag">Turnkey</span><span class="tag year">2023</span><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Turnkey</b> • Noida</div><h3>Maple Grove Villa</h3><p>Design-and-build delivery of a two-level family home in ten months.</p></a>
+      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="hospitality" data-delay="2"><div class="ph"><span class="tag">Hospitality</span><span class="tag year">2022</span><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Interior</b> • New Delhi</div><h3>The Lounge, New Delhi</h3><p>An intimate hospitality interior in brass, velvet and green marble.</p></a>
+      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="residential"><div class="ph"><span class="tag">Residential</span><span class="tag year">2022</span><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Interior</b> • Gurugram</div><h3>Lakeview Apartment</h3><p>A compact three-bedroom apartment opened up around a single long view.</p></a>
+      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="commercial" data-delay="1"><div class="ph"><span class="tag">Commercial</span><span class="tag year">2022</span><img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Workspace</b> • Noida</div><h3>Atrium Clinic</h3><p>A calm, daylit healthcare interior planned around a planted atrium.</p></a>
+      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="architecture" data-delay="2"><div class="ph"><span class="tag">Architecture</span><span class="tag year">2021</span><img src="../../assets/stock/architecture-villa-dusk.jpg" alt="" onerror="this.remove()"></div><div class="meta"><b>Architecture</b> • Faridabad</div><h3>Terrace House</h3><p>A stepped family residence with layered terraces facing the Aravalli ridge.</p></a>
+      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="turnkey"><div class="ph"><span class="tag">Turnkey</span><span class="tag year">2021</span><img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Turnkey</b> • Gurugram</div><h3>Ridge Villa</h3><p>Complete design-and-build of a weekend home, from foundation to furnishing.</p></a>
+      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="hospitality" data-delay="1"><div class="ph"><span class="tag">Hospitality</span><span class="tag year">2020</span><img src="../../assets/stock/hospitality-bar.jpg" alt="" onerror="this.remove()"></div><div class="meta"><b>Interior</b> • New Delhi</div><h3>Café Verde</h3><p>A forty-cover café in terrazzo, cane and deep green, built in eight weeks.</p></a>
+      <a href="#" onclick="return false" title="Project page will be added in the build phase" class="folio reveal" data-cat="commercial" data-delay="2"><div class="ph"><span class="tag">Commercial</span><span class="tag year">2020</span><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Retail</b> • New Delhi</div><h3>Boutique, Khan Market</h3><p>A jewel-box retail interior in fluted glass, brass and travertine.</p></a>
+    </div>
+    <div class="folio-note reveal">All project names, locations and photographs are placeholders. Individual project pages will be added in the build phase.</div>
+  </div>
+</section>
+
+<!-- ============ NUMBERS ============ -->
+<section class="stats bg-black">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat reveal"><div class="num"><span data-count="200">0</span><small>+</small></div><div class="lbl">Projects Delivered</div><div class="sub">Homes, offices &amp; hospitality</div></div>
+      <div class="stat reveal" data-delay="1"><div class="num"><span data-count="30">0</span><small>+</small></div><div class="lbl">Years of Experience</div><div class="sub">Designing since 1996</div></div>
+      <div class="stat reveal" data-delay="2"><div class="num"><span data-count="12">0</span><small>+</small></div><div class="lbl">Cities</div><div class="sub">Placeholder figure</div></div>
+      <div class="stat reveal" data-delay="3"><div class="num"><span data-count="100">0</span><small>%</small></div><div class="lbl">Client Satisfaction</div><div class="sub">Referred &amp; repeat clients</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE ============ -->
+<section class="section bg-off quote-band">
+  <div class="container reveal">
+    <div class="q">“</div>
+    <blockquote>The team understood exactly what we wanted before we could put it into words. Our home feels calm, elegant and completely ours.</blockquote>
+    <div class="testi" style="background:none;padding:0;border:0;display:inline-block"><div class="who"><div class="av">R</div><div><b>Mr. Rahul Mehta</b><span>The Verdant Residence · Placeholder review</span></div></div></div>
+    <div style="margin-top:36px"><a href="../../testimonials/v1/index.html" class="link">Read More Client Stories <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<section class="cta-band">
+  <div class="bg" aria-hidden="true"><img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=2000&q=80" alt="" onerror="this.remove()"></div>
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">Let's Talk</div>
+      <h2>Your project could be <em>next.</em></h2>
+      <p class="lead">Tell us about your home, office or site. We will come back within 24 hours with a free consultation and a clear next step.</p>
+      <ul class="trust">
+        <li>Free consultation</li>
+        <li>24-hour response</li>
+        <li>30 years of experience</li>
+      </ul>
+    </div>
+    <div class="cta-card reveal" data-delay="1">
+      <div class="lbl">Speak to a designer</div>
+      <a class="phone" href="tel:+919818886620">+91 98188 86620</a>
+      <div class="hrs">Open 24 hours, 7 days a week</div>
+      <a href="../../contact/v1/index.html" class="btn btn-black">Start Your Project Today <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="alt" href="https://wa.me/919818886620" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.95L0 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer bg-black">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo-tile"><img src="../../assets/logo-white.png" alt="MV Design Studio"></div>
+        <p>Creating spaces that inspire, endure and enrich the way people live and work. Architecture and interior design studio, established 1996.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul><li><a href="../../about/v1/index.html">About Us</a></li><li><a href="../../services/v1/index.html">Services</a></li><li><a href="../../portfolio/v1/index.html">Portfolio</a></li><li><a href="../../testimonials/v1/index.html">Testimonials</a></li><li><a href="../../contact/v1/index.html">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>Our Services</h4>
+        <ul><li><a href="../../services/v1/index.html#architecture">Architecture Design</a></li><li><a href="../../services/v1/index.html#interiors">Interior Design</a></li><li><a href="../../services/v1/index.html#turnkey">Turnkey Execution</a></li><li><a href="../../services/v1/index.html#furniture">Furniture &amp; Décor</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact Us</h4>
+        <ul class="contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+919818886620">+91 98188 86620</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg><div><a href="mailto:info@mvdesignstudio.com">info@mvdesignstudio.com</a><em>Placeholder — domain to confirm</em></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Open 24 hours, 7 days a week</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div>Studio address<em>Placeholder — to be provided</em></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MV Design Studio. All rights reserved.</span>
+      <ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul>
+      <span class="credit">Website by <a href="https://webspidersolutions.com">Web Spider Solutions</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING ============ -->
+<div class="float">
+  <a href="https://wa.me/919818886620" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.95L0 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg></a>
+  <a href="tel:+919818886620" aria-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></a>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="star" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></defs></svg>
+
+<script src="../../assets/v1/v1.js"></script>
+</body>
+</html>

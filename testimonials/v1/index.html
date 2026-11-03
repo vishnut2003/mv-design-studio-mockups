@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MV Design Studio — Testimonials (Mockup v1)</title>
+<meta name="description" content="Design mockup v1 of the MV Design Studio Testimonials page, prepared by Web Spider Solutions for client review.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/v1/v1.css">
+<style>
+/* ============ TESTIMONIALS PAGE ONLY ============ */
+.rating{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(28px,5vw,72px);align-items:center;padding:clamp(28px,4vw,44px);border:1px solid var(--line);border-radius:2px;background:var(--white);box-shadow:0 30px 80px rgba(0,0,0,.05)}
+.rating .score{font-family:var(--font-head);font-size:clamp(72px,8vw,110px);line-height:.9;display:flex;align-items:baseline;gap:4px}
+.rating .score small{font-size:.3em;color:var(--green)}
+.rating .stars{margin:0 0 10px}
+.rating .stars svg{width:18px;height:18px}
+.rating h2{font-size:clamp(26px,2.6vw,34px);margin-bottom:8px}
+.rating p{font-size:15px;color:var(--grey);font-weight:300;max-width:44ch}
+.rating .badges{display:flex;flex-direction:column;gap:10px}
+.rating .badges span{display:inline-flex;align-items:center;justify-content:space-between;gap:16px;font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:10px 16px;border:1px solid var(--line);border-radius:999px;color:#444;min-width:180px}
+.rating .badges span b{color:var(--green-dark)}
+.feat-testi{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,7vw,100px);align-items:center}
+.feat-testi .ph{aspect-ratio:4/5;border-radius:2px}
+.feat-testi .q{font-family:var(--font-head);font-size:110px;line-height:.5;color:var(--green);margin-bottom:34px}
+.feat-testi blockquote{font-family:var(--font-head);font-size:clamp(26px,2.8vw,40px);line-height:1.3;color:var(--white)}
+.feat-testi .who{display:flex;align-items:center;gap:14px;margin-top:30px}
+.feat-testi .av{width:48px;height:48px;border-radius:50%;background:var(--green);color:var(--black);display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:20px}
+.feat-testi .who b{display:block;font-size:14px;font-weight:600;color:var(--white)}
+.feat-testi .who span{font-size:12px;color:rgba(255,255,255,.6);letter-spacing:.06em;text-transform:uppercase}
+.feat-testi .ph .tag{top:auto;bottom:14px}
+.testi-grid.page{grid-template-columns:repeat(3,1fr);gap:24px}
+.testi .proj{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--green-dark);font-weight:600;margin-bottom:12px}
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.video{display:block}
+.video .ph{aspect-ratio:16/9;border-radius:2px;margin-bottom:16px}
+.video .ph img{filter:grayscale(.4) brightness(.75)}
+.video .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;transition:transform .4s var(--ease),background .3s}
+.video .play svg{width:20px;height:20px;margin-left:3px;fill:var(--black)}
+.video:hover .play{transform:translate(-50%,-50%) scale(1.08);background:var(--green)}
+.video h3{font-size:22px;margin-bottom:4px}
+.video p{font-size:13.5px;color:var(--grey);font-weight:300}
+.share{display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap}
+.share .h2{font-size:clamp(30px,3.6vw,46px);margin-bottom:8px}
+.share .lead{font-size:16px}
+.share .actions{display:flex;gap:14px;flex-wrap:wrap}
+@media (max-width:1100px){.testi-grid.page{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:900px){
+  .rating{grid-template-columns:1fr;text-align:center}
+  .rating .score{justify-content:center}
+  .rating .stars{justify-content:center}
+  .rating p{margin:0 auto}
+  .rating .badges{flex-direction:row;flex-wrap:wrap;justify-content:center}
+  .rating .badges span{min-width:0}
+  .feat-testi{grid-template-columns:1fr}
+  .video-grid{grid-template-columns:1fr}
+  /* full stacked grid instead of the home-page carousel */
+  .testi-grid.page{display:grid;grid-template-columns:1fr;overflow:visible;margin:0;padding:0;scroll-snap-type:none;gap:16px}
+  .testi-grid.page .testi{flex:none}
+  .share .actions .btn{width:100%;justify-content:center}
+}
+</style>
+</head>
+<body data-page="testimonials">
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="container">
+    <a class="logo" href="../../home/v1/index.html"><img class="logo-light" src="../../assets/logo-white.png" alt="MV Design Studio"><img class="logo-dark" src="../../assets/logo-black.png" alt="MV Design Studio"></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="../../home/v1/index.html" data-page="home">Home</a>
+      <a href="../../about/v1/index.html" data-page="about">About</a>
+      <a href="../../services/v1/index.html" data-page="services">Services</a>
+      <a href="../../portfolio/v1/index.html" data-page="portfolio">Portfolio</a>
+      <a href="../../testimonials/v1/index.html" data-page="testimonials" class="active">Testimonials</a>
+      <a href="../../contact/v1/index.html" data-page="contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="../../contact/v1/index.html" class="btn btn-nav">Get Consultation</a>
+      <button class="burger" type="button" aria-label="Menu" onclick="document.body.classList.toggle('nav-open');updateNav()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MOBILE SIDEBAR MENU ============ -->
+<div class="menu-backdrop" onclick="closeMenu()"></div>
+<aside class="mobile-menu" aria-label="Menu">
+  <div class="mm-head">
+    <img src="../../assets/logo-white.png" alt="MV Design Studio">
+    <button class="mm-close" type="button" aria-label="Close menu" onclick="closeMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
+  <div class="mm-eyebrow">Menu</div>
+  <nav class="mm-links">
+    <a href="../../home/v1/index.html" data-page="home"><span>01</span>Home</a>
+    <a href="../../about/v1/index.html" data-page="about"><span>02</span>About</a>
+    <a href="../../services/v1/index.html" data-page="services"><span>03</span>Services</a>
+    <a href="../../portfolio/v1/index.html" data-page="portfolio"><span>04</span>Portfolio</a>
+    <a href="../../testimonials/v1/index.html" data-page="testimonials"><span>05</span>Testimonials</a>
+    <a href="../../contact/v1/index.html" data-page="contact"><span>06</span>Contact</a>
+  </nav>
+  <a href="../../contact/v1/index.html" class="btn btn-white">Get Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</aside>
+
+<main id="top">
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="ph"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80" alt="" onerror="this.remove()"></div>
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../home/v1/index.html">Home</a><span class="sep">/</span><span class="cur">Testimonials</span></nav>
+    <div class="eyebrow">Testimonials</div>
+    <h1>What our clients <br><em>say about us.</em></h1>
+    <p class="lead">Thirty years of homes, offices and hospitality spaces, told by the people who live and work in them. All reviews on this page are placeholders for layout review.</p>
+  </div>
+</section>
+
+<!-- ============ RATING SUMMARY ============ -->
+<section class="section" id="rating" style="padding-bottom:0">
+  <div class="container">
+    <div class="rating reveal">
+      <div class="score">5.0<small>/5</small></div>
+      <div>
+        <div class="stars"><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg></div>
+        <h2>Rated 5.0 by our clients</h2>
+        <p>Based on 120+ client reviews across Google, Houzz and Justdial. <em style="font-style:normal;font-size:12px;color:#999">(placeholder figures, to be replaced with live review counts)</em></p>
+      </div>
+      <div class="badges">
+        <span>Google <b>5.0</b></span>
+        <span>Houzz <b>5.0</b></span>
+        <span>Justdial <b>4.9</b></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURED TESTIMONIAL ============ -->
+<section class="section" id="featured">
+  <div class="container">
+    <div class="feat-testi bg-black" style="padding:clamp(32px,4vw,64px);border-radius:2px">
+      <div class="ph reveal"><span class="tag">Placeholder image · The Verdant Residence</span><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=80" alt="" onerror="this.remove()"></div>
+      <div class="reveal" data-delay="1">
+        <div class="q">“</div>
+        <div class="eyebrow">Client Story</div>
+        <blockquote>“We met six studios before MV Design Studio. They were the only ones who asked how we actually live. Ten months later we walked into a home that felt like it had always been ours, finished on the date they promised.”</blockquote>
+        <div class="who"><div class="av">R</div><div><b>Mr. &amp; Mrs. Mehta</b><span>The Verdant Residence · Gurugram · Placeholder review</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEW GRID ============ -->
+<section class="section bg-off" id="reviews">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">Client Reviews</div>
+      <h2 class="h2">In their own words</h2>
+      <p class="lead" style="margin:0 auto">Homeowners, business owners and hospitality clients across Delhi NCR.</p>
+    </div>
+    <div class="testi-grid page">
+      <div class="testi reveal" style="background:#fff;border-color:var(--line)"><div class="q">“</div><div class="stars"><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg></div><div class="proj">Villa Interior · Gurugram</div><p>“The team understood exactly what we wanted before we could put it into words. Our home feels calm, elegant and completely ours. The execution was flawless and on time.” <em>(placeholder review)</em></p><div class="who"><div class="av">R</div><div><b>Mr. Rahul Mehta</b><span>Homeowner</span></div></div></div>
+      <div class="testi reveal" data-delay="1" style="background:#fff;border-color:var(--line)"><div class="q">“</div><div class="stars"><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg></div><div class="proj">Turnkey Home · New Delhi</div><p>“From architecture to the last cushion, MV Design Studio handled everything. Their transparency on budget and the weekly updates made the whole process stress-free.” <em>(placeholder review)</em></p><div class="who"><div class="av">N</div><div><b>Ms. Nidhi Kapoor</b><span>Homeowner</span></div></div></div>
+      <div class="testi reveal" data-delay="2" style="background:#fff;border-color:var(--line)"><div class="q">“</div><div class="stars"><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg></div><div class="proj">Office Interior · Noida</div><p>“Our new office has completely changed how the team works. Beautiful, practical and delivered within the timeline we were promised. Highly recommended.” <em>(placeholder review)</em></p><div class="who"><div class="av">A</div><div><b>Mr. Arjun Saxena</b><span>Managing Director</span></div></div></div>
+      <div class="testi reveal" style="background:#fff;border-color:var(--line)"><div class="q">“</div><div class="stars"><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg></div><div class="proj">Farmhouse Architecture · Chhatarpur</div><p>“They designed the house around the courtyard we had always imagined, and then took care of every approval. We never had to chase anyone, not once.” <em>(placeholder review)</em></p><div class="who"><div class="av">S</div><div><b>Dr. Sunita Rao</b><span>Homeowner</span></div></div></div>
+      <div class="testi reveal" data-delay="1" style="background:#fff;border-color:var(--line)"><div class="q">“</div><div class="stars"><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg></div><div class="proj">Café Interior · New Delhi</div><p>“Eight weeks from drawings to opening night. Guests ask about the interiors every single day, and the space works as hard as it looks.” <em>(placeholder review)</em></p><div class="who"><div class="av">K</div><div><b>Mr. Karan Malhotra</b><span>Café Owner</span></div></div></div>
+      <div class="testi reveal" data-delay="2" style="background:#fff;border-color:var(--line)"><div class="q">“</div><div class="stars"><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg></div><div class="proj">Apartment Interior · Gurugram</div><p>“A small apartment that now feels twice its size. The custom joinery alone was worth it. Thoughtful, patient and precise.” <em>(placeholder review)</em></p><div class="who"><div class="av">P</div><div><b>Ms. Priya Nair</b><span>Homeowner</span></div></div></div>
+      <div class="testi reveal" style="background:#fff;border-color:var(--line)"><div class="q">“</div><div class="stars"><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg></div><div class="proj">Retail Interior · Khan Market</div><p>“Our boutique needed to feel luxurious in a very small footprint. The fluted glass and brass details are exactly the brand we wanted to project.” <em>(placeholder review)</em></p><div class="who"><div class="av">M</div><div><b>Ms. Meera Chawla</b><span>Founder, Boutique</span></div></div></div>
+      <div class="testi reveal" data-delay="1" style="background:#fff;border-color:var(--line)"><div class="q">“</div><div class="stars"><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg></div><div class="proj">Turnkey Villa · Noida</div><p>“One contract, one team, one number to call. The itemised budget was followed to the rupee, and the weekly site photos kept us relaxed from abroad.” <em>(placeholder review)</em></p><div class="who"><div class="av">V</div><div><b>Mr. Vikram Singh</b><span>NRI Homeowner</span></div></div></div>
+      <div class="testi reveal" data-delay="2" style="background:#fff;border-color:var(--line)"><div class="q">“</div><div class="stars"><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg></div><div class="proj">Clinic Interior · Noida</div><p>“Patients tell us the clinic feels calm the moment they walk in. That was the brief, and the studio delivered it with real care for how we work.” <em>(placeholder review)</em></p><div class="who"><div class="av">D</div><div><b>Dr. Anil Deshpande</b><span>Clinic Director</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIDEO TESTIMONIALS ============ -->
+<section class="section" id="videos">
+  <div class="container">
+    <div class="sec-head split reveal">
+      <div>
+        <div class="eyebrow">Video Stories</div>
+        <h2 class="h2">Hear it from our clients</h2>
+        <p class="lead">Short walkthroughs of finished projects, narrated by the people who commissioned them.</p>
+      </div>
+      <a href="../../portfolio/v1/index.html" class="link">See the Projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="video-grid">
+      <a href="#" onclick="showToast('Placeholder — client video will be embedded here in the live site.');return false" class="video reveal"><div class="ph"><span class="tag dark">Placeholder video</span><span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><h3>The Verdant Residence</h3><p>Mr. &amp; Mrs. Mehta walk through their finished home · 2:40</p></a>
+      <a href="#" onclick="showToast('Placeholder — client video will be embedded here in the live site.');return false" class="video reveal" data-delay="1"><div class="ph"><span class="tag dark">Placeholder video</span><span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><h3>Studio Office, Gurugram</h3><p>How a new workspace changed the way a team works · 1:55</p></a>
+      <a href="#" onclick="showToast('Placeholder — client video will be embedded here in the live site.');return false" class="video reveal" data-delay="2"><div class="ph"><span class="tag dark">Placeholder video</span><span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><img src="../../assets/stock/hospitality-bar.jpg" alt="" onerror="this.remove()"></div><h3>Café Verde</h3><p>From drawings to opening night in eight weeks · 2:10</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHARE YOUR EXPERIENCE ============ -->
+<section class="section bg-off" id="share">
+  <div class="container">
+    <div class="share reveal">
+      <div>
+        <div class="eyebrow">Worked With Us?</div>
+        <h2 class="h2">Share your experience</h2>
+        <p class="lead">Your words help the next family or business choose with confidence. A review takes two minutes.</p>
+      </div>
+      <div class="actions">
+        <a href="#" onclick="showToast('Placeholder — this will link to the studio\'s Google review page.');return false" class="btn btn-black">Write a Google Review <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="../../contact/v1/index.html" class="btn btn-outline-b">Start Your Project</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<section class="cta-band">
+  <div class="bg" aria-hidden="true"><img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=2000&q=80" alt="" onerror="this.remove()"></div>
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">Let's Talk</div>
+      <h2>Ready to join <em>our clients?</em></h2>
+      <p class="lead">Tell us about your home, office or site. We will come back within 24 hours with a free consultation and a clear next step.</p>
+      <ul class="trust">
+        <li>Free consultation</li>
+        <li>24-hour response</li>
+        <li>30 years of experience</li>
+      </ul>
+    </div>
+    <div class="cta-card reveal" data-delay="1">
+      <div class="lbl">Speak to a designer</div>
+      <a class="phone" href="tel:+919818886620">+91 98188 86620</a>
+      <div class="hrs">Open 24 hours, 7 days a week</div>
+      <a href="../../contact/v1/index.html" class="btn btn-black">Start Your Project Today <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="alt" href="https://wa.me/919818886620" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.95L0 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer bg-black">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo-tile"><img src="../../assets/logo-white.png" alt="MV Design Studio"></div>
+        <p>Creating spaces that inspire, endure and enrich the way people live and work. Architecture and interior design studio, established 1996.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul><li><a href="../../about/v1/index.html">About Us</a></li><li><a href="../../services/v1/index.html">Services</a></li><li><a href="../../portfolio/v1/index.html">Portfolio</a></li><li><a href="../../testimonials/v1/index.html">Testimonials</a></li><li><a href="../../contact/v1/index.html">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>Our Services</h4>
+        <ul><li><a href="../../services/v1/index.html#architecture">Architecture Design</a></li><li><a href="../../services/v1/index.html#interiors">Interior Design</a></li><li><a href="../../services/v1/index.html#turnkey">Turnkey Execution</a></li><li><a href="../../services/v1/index.html#furniture">Furniture &amp; Décor</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact Us</h4>
+        <ul class="contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+919818886620">+91 98188 86620</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg><div><a href="mailto:info@mvdesignstudio.com">info@mvdesignstudio.com</a><em>Placeholder — domain to confirm</em></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Open 24 hours, 7 days a week</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div>Studio address<em>Placeholder — to be provided</em></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MV Design Studio. All rights reserved.</span>
+      <ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul>
+      <span class="credit">Website by <a href="https://webspidersolutions.com">Web Spider Solutions</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING ============ -->
+<div class="float">
+  <a href="https://wa.me/919818886620" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.95L0 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg></a>
+  <a href="tel:+919818886620" aria-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></a>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="star" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></defs></svg>
+
+<script src="../../assets/v1/v1.js"></script>
+</body>
+</html>

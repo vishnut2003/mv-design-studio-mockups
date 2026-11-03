@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MV Design Studio — Services (Mockup v1)</title>
+<meta name="description" content="Design mockup v1 of the MV Design Studio Services page, prepared by Web Spider Solutions for client review.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/v1/v1.css">
+<style>
+/* ============ SERVICES PAGE ONLY ============ */
+.svc-detail{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,100px);align-items:center}
+.svc-detail.flip .svc-media{order:2}
+.svc-media{position:relative}
+.svc-media .ph{aspect-ratio:4/5;border-radius:2px}
+.svc-media .edge{position:absolute;left:-18px;bottom:-18px;width:60%;height:50%;border-left:1px solid var(--green);border-bottom:1px solid var(--green);opacity:.7;pointer-events:none}
+.svc-detail.flip .svc-media .edge{left:auto;right:-18px;border-left:0;border-right:1px solid var(--green)}
+.svc-chip{position:absolute;right:-16px;top:40px;z-index:2;background:var(--black);color:var(--white);padding:18px 22px;border-radius:2px;box-shadow:0 30px 60px rgba(0,0,0,.2);font-family:var(--font-head);font-size:22px;line-height:1.1}
+.svc-chip::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--green)}
+.svc-chip span{display:block;margin-top:6px;font-family:var(--font-body);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+.svc-detail.flip .svc-chip{right:auto;left:-16px}
+.svc-copy .h2{font-size:clamp(34px,4.2vw,54px)}
+.svc-copy .checks{margin:28px 0 36px}
+.svc-actions{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.svc-foot{display:flex;align-items:center;gap:14px;margin-top:28px;padding-top:22px;border-top:1px solid var(--line);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+.svc-foot b{color:var(--ink);font-weight:600}
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,7vw,100px);align-items:start}
+.faq-grid .sec-head{margin-bottom:0;position:sticky;top:110px}
+.faq-grid .sec-head .btn{margin-top:28px}
+@media (max-width:900px){
+  .svc-detail{grid-template-columns:1fr}
+  .svc-detail.flip .svc-media{order:0}
+  .svc-media .edge{display:none}
+  .svc-chip,.svc-detail.flip .svc-chip{left:auto;right:12px;top:12px;padding:12px 16px;font-size:18px}
+  .faq-grid{grid-template-columns:1fr}
+  .faq-grid .sec-head{position:static;margin-bottom:8px}
+}
+</style>
+</head>
+<body data-page="services">
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="container">
+    <a class="logo" href="../../home/v1/index.html"><img class="logo-light" src="../../assets/logo-white.png" alt="MV Design Studio"><img class="logo-dark" src="../../assets/logo-black.png" alt="MV Design Studio"></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="../../home/v1/index.html" data-page="home">Home</a>
+      <a href="../../about/v1/index.html" data-page="about">About</a>
+      <a href="../../services/v1/index.html" data-page="services" class="active">Services</a>
+      <a href="../../portfolio/v1/index.html" data-page="portfolio">Portfolio</a>
+      <a href="../../testimonials/v1/index.html" data-page="testimonials">Testimonials</a>
+      <a href="../../contact/v1/index.html" data-page="contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="../../contact/v1/index.html" class="btn btn-nav">Get Consultation</a>
+      <button class="burger" type="button" aria-label="Menu" onclick="document.body.classList.toggle('nav-open');updateNav()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MOBILE SIDEBAR MENU ============ -->
+<div class="menu-backdrop" onclick="closeMenu()"></div>
+<aside class="mobile-menu" aria-label="Menu">
+  <div class="mm-head">
+    <img src="../../assets/logo-white.png" alt="MV Design Studio">
+    <button class="mm-close" type="button" aria-label="Close menu" onclick="closeMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
+  <div class="mm-eyebrow">Menu</div>
+  <nav class="mm-links">
+    <a href="../../home/v1/index.html" data-page="home"><span>01</span>Home</a>
+    <a href="../../about/v1/index.html" data-page="about"><span>02</span>About</a>
+    <a href="../../services/v1/index.html" data-page="services"><span>03</span>Services</a>
+    <a href="../../portfolio/v1/index.html" data-page="portfolio"><span>04</span>Portfolio</a>
+    <a href="../../testimonials/v1/index.html" data-page="testimonials"><span>05</span>Testimonials</a>
+    <a href="../../contact/v1/index.html" data-page="contact"><span>06</span>Contact</a>
+  </nav>
+  <a href="../../contact/v1/index.html" class="btn btn-white">Get Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</aside>
+
+<main id="top">
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="ph"><img src="../../assets/stock/architecture-villa-dusk.jpg" alt="" onerror="this.remove()"></div>
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../home/v1/index.html">Home</a><span class="sep">/</span><span class="cur">Services</span></nav>
+    <div class="eyebrow">Services</div>
+    <h1>Everything your space needs, <br><em>under one roof.</em></h1>
+    <p class="lead">Architecture, interiors, turnkey execution and bespoke furniture. Choose a single service or let one team take your project from the first sketch to the day you move in.</p>
+  </div>
+</section>
+
+<!-- ============ OVERVIEW ============ -->
+<section class="section" id="overview">
+  <div class="container">
+    <div class="sec-head split reveal">
+      <div>
+        <div class="eyebrow">What We Do</div>
+        <h2 class="h2">Our Expertise</h2>
+        <p class="lead">Four services, one accountable studio. Each can stand alone or combine into a complete design-and-build engagement.</p>
+      </div>
+      <a href="../../contact/v1/index.html" class="link">Book a Free Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="services-grid">
+      <article class="service reveal"><div class="num">01</div><h3>Architecture Design</h3><p>Bespoke residential and commercial architecture, from concept sketches and 3D visualisation to approvals and construction drawings.</p><a href="#architecture" class="link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+      <article class="service reveal" data-delay="1"><div class="num">02</div><h3>Interior Design</h3><p>Mood boards, space planning, lighting, materials and custom furniture, curated into interiors that feel effortless and refined.</p><a href="#interiors" class="link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+      <article class="service reveal" data-delay="2"><div class="num">03</div><h3>Turnkey Execution</h3><p>Single-point project management from site to handover: civil work, MEP, finishes and fit-out, delivered on schedule and on budget.</p><a href="#turnkey" class="link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+      <article class="service reveal" data-delay="3"><div class="num">04</div><h3>Furniture &amp; Décor</h3><p>Custom-made furniture, modular kitchens and wardrobes, art and styling to complete every room down to the last detail.</p><a href="#furniture" class="link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 ARCHITECTURE ============ -->
+<section class="section bg-off" id="architecture">
+  <div class="container">
+    <div class="svc-detail">
+      <div class="svc-media reveal">
+        <span class="edge"></span>
+        <div class="ph"><span class="tag">Architecture</span><img src="../../assets/stock/architecture-villa-dusk.jpg" alt="" onerror="this.remove()"></div>
+        <div class="svc-chip">Concept to<br>construction<span>Placeholder image</span></div>
+      </div>
+      <div class="svc-copy reveal" data-delay="1">
+        <div class="eyebrow">01 · Architecture Design</div>
+        <h2 class="h2">Buildings shaped around the way you live and work.</h2>
+        <p class="lead">From private villas and farmhouses to offices and retail, we design architecture that responds to site, climate and the people who will use it every day.</p>
+        <ul class="checks">
+          <li>Site analysis, feasibility and concept design</li>
+          <li>3D visualisation and walkthroughs before you commit</li>
+          <li>Municipal approvals and statutory documentation</li>
+          <li>Structural, MEP and construction drawings</li>
+          <li>Site supervision through to completion</li>
+        </ul>
+        <div class="svc-actions">
+          <a href="../../contact/v1/index.html" class="btn btn-outline-b">Discuss This Service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="../../portfolio/v1/index.html" class="link">See Architecture Work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="svc-foot"><b>Typical timeline</b> 8 to 14 weeks for design &amp; approvals <em style="font-style:normal;color:#999">(placeholder)</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 INTERIORS ============ -->
+<section class="section" id="interiors">
+  <div class="container">
+    <div class="svc-detail flip">
+      <div class="svc-media reveal">
+        <span class="edge"></span>
+        <div class="ph"><span class="tag">Interiors</span><img src="../../assets/stock/living-room-open-plan.jpg" alt="" onerror="this.remove()"></div>
+        <div class="svc-chip">Homes, offices<br>&amp; retail<span>Placeholder image</span></div>
+      </div>
+      <div class="svc-copy reveal" data-delay="1">
+        <div class="eyebrow">02 · Interior Design</div>
+        <h2 class="h2">Interiors that feel effortless, refined and completely yours.</h2>
+        <p class="lead">We plan every room around light, movement and material, then layer in lighting, joinery, furniture and art until the space feels inevitable.</p>
+        <ul class="checks">
+          <li>Space planning and furniture layouts</li>
+          <li>Mood boards, material and finish palettes</li>
+          <li>Lighting design and electrical layouts</li>
+          <li>Custom joinery, wardrobes and kitchen design</li>
+          <li>Styling, art curation and final dressing</li>
+        </ul>
+        <div class="svc-actions">
+          <a href="../../contact/v1/index.html" class="btn btn-outline-b">Discuss This Service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="../../portfolio/v1/index.html" class="link">See Interior Work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="svc-foot"><b>Typical timeline</b> 4 to 8 weeks for design development <em style="font-style:normal;color:#999">(placeholder)</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 TURNKEY ============ -->
+<section class="section bg-off" id="turnkey">
+  <div class="container">
+    <div class="svc-detail">
+      <div class="svc-media reveal">
+        <span class="edge"></span>
+        <div class="ph"><span class="tag">Turnkey</span><img src="../../assets/stock/site-plastering.jpg" alt="" onerror="this.remove()"></div>
+        <div class="svc-chip">One team,<br>one promise<span>Placeholder image</span></div>
+      </div>
+      <div class="svc-copy reveal" data-delay="1">
+        <div class="eyebrow">03 · Turnkey Execution</div>
+        <h2 class="h2">We build what we design, so nothing is lost in translation.</h2>
+        <p class="lead">Our in-house site team executes the design end to end, managing civil work, services, finishes and vendors against a fixed schedule and an itemised budget.</p>
+        <ul class="checks">
+          <li>Itemised estimates and transparent costing</li>
+          <li>Civil, plumbing, electrical and HVAC coordination</li>
+          <li>Vetted vendors and quality-checked materials</li>
+          <li>Weekly progress reports and site photographs</li>
+          <li>Snag-free handover with post-completion support</li>
+        </ul>
+        <div class="svc-actions">
+          <a href="../../contact/v1/index.html" class="btn btn-outline-b">Discuss This Service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="../../portfolio/v1/index.html" class="link">See Turnkey Projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="svc-foot"><b>Typical timeline</b> 3 to 6 months on site, depending on scope <em style="font-style:normal;color:#999">(placeholder)</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 FURNITURE ============ -->
+<section class="section" id="furniture">
+  <div class="container">
+    <div class="svc-detail flip">
+      <div class="svc-media reveal">
+        <span class="edge"></span>
+        <div class="ph"><span class="tag">Furniture &amp; Décor</span><img src="../../assets/stock/material-walnut.jpg" alt="" onerror="this.remove()"></div>
+        <div class="svc-chip">Made to<br>measure<span>Placeholder image</span></div>
+      </div>
+      <div class="svc-copy reveal" data-delay="1">
+        <div class="eyebrow">04 · Furniture &amp; Décor</div>
+        <h2 class="h2">Every piece designed for its place in the room.</h2>
+        <p class="lead">Custom furniture, modular kitchens and wardrobes, soft furnishings and art, made to our drawings and finished to the same standard as the space around them.</p>
+        <ul class="checks">
+          <li>Bespoke furniture design and manufacturing</li>
+          <li>Modular kitchens, wardrobes and storage</li>
+          <li>Curated loose furniture and lighting</li>
+          <li>Curtains, rugs, upholstery and soft furnishings</li>
+          <li>Art, accessories and final styling</li>
+        </ul>
+        <div class="svc-actions">
+          <a href="../../contact/v1/index.html" class="btn btn-outline-b">Discuss This Service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="../../portfolio/v1/index.html" class="link">See Finished Interiors <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="svc-foot"><b>Typical timeline</b> 6 to 10 weeks from drawings to delivery <em style="font-style:normal;color:#999">(placeholder)</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="section bg-black" id="process">
+  <div class="container">
+    <div class="process-head reveal" style="margin-top:0;padding-top:0;border-top:0">
+      <div>
+        <div class="eyebrow">Our Process</div>
+        <h2 class="h2">How we work</h2>
+      </div>
+      <p>From the first conversation to the day you move in, a clear four-step path with no guesswork.</p>
+    </div>
+    <div class="process-grid">
+      <div class="step reveal"><div class="num">01</div><h3>Consult</h3><p>We listen. A free first consultation to understand your space, lifestyle, timeline and budget.</p><span class="dur">Week 1</span></div>
+      <div class="step reveal" data-delay="1"><div class="num">02</div><h3>Design</h3><p>Concepts, 3D views, materials and detailed drawings, refined with you until every detail is right.</p><span class="dur">Weeks 2–6</span></div>
+      <div class="step reveal" data-delay="2"><div class="num">03</div><h3>Build</h3><p>Our site team executes with precision, managing vendors, quality and schedule end to end.</p><span class="dur">Weeks 7–20</span></div>
+      <div class="step reveal" data-delay="3"><div class="num">04</div><h3>Handover</h3><p>Styled, cleaned and ready to live in. We stay on call for support long after you move in.</p><span class="dur">Final week</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section bg-off" id="faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="sec-head reveal">
+        <div class="eyebrow">FAQ</div>
+        <h2 class="h2">Questions we hear most often</h2>
+        <p class="lead">Answers below are placeholder copy for layout review and will be confirmed with MV Design Studio.</p>
+        <a href="../../contact/v1/index.html" class="btn btn-black">Ask Us Anything <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="faq reveal" data-delay="1">
+        <details open>
+          <summary>How long does a typical project take?<span class="ic"></span></summary>
+          <div class="ans">A full home interior usually takes four to six months from first consultation to handover, depending on size and scope. Architecture projects run longer because of approvals and construction. We agree a detailed schedule before any work begins. <em>(placeholder answer)</em></div>
+        </details>
+        <details>
+          <summary>How do you handle budgets?<span class="ic"></span></summary>
+          <div class="ans">Every project starts with an itemised estimate broken down by room and by trade. Costs are agreed before execution, and any change is priced and approved by you in writing before it goes ahead. <em>(placeholder answer)</em></div>
+        </details>
+        <details>
+          <summary>Which cities do you work in?<span class="ic"></span></summary>
+          <div class="ans">We are based in the Delhi NCR region and regularly deliver projects across North India. For projects elsewhere, we assess site logistics during the first consultation. <em>(placeholder answer)</em></div>
+        </details>
+        <details>
+          <summary>Do you take care of municipal approvals?<span class="ic"></span></summary>
+          <div class="ans">Yes. For architecture projects we prepare and submit the drawings and documentation required for sanction, and coordinate with the authorities until approval is received. <em>(placeholder answer)</em></div>
+        </details>
+        <details>
+          <summary>Can I hire you for design only, without execution?<span class="ic"></span></summary>
+          <div class="ans">Absolutely. Architecture, interior design and furniture design are each available as standalone services. Many clients begin with design and add turnkey execution once the drawings are ready. <em>(placeholder answer)</em></div>
+        </details>
+        <details>
+          <summary>What happens after handover?<span class="ic"></span></summary>
+          <div class="ans">We walk through the finished space with you, close any snags and hand over care instructions and warranties. Our team stays on call for support long after you move in. <em>(placeholder answer)</em></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<section class="cta-band">
+  <div class="bg" aria-hidden="true"><img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=2000&q=80" alt="" onerror="this.remove()"></div>
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">Let's Talk</div>
+      <h2>Not sure which service <em>you need?</em></h2>
+      <p class="lead">Tell us about your home, office or site. We will come back within 24 hours with a free consultation and a clear next step.</p>
+      <ul class="trust">
+        <li>Free consultation</li>
+        <li>24-hour response</li>
+        <li>30 years of experience</li>
+      </ul>
+    </div>
+    <div class="cta-card reveal" data-delay="1">
+      <div class="lbl">Speak to a designer</div>
+      <a class="phone" href="tel:+919818886620">+91 98188 86620</a>
+      <div class="hrs">Open 24 hours, 7 days a week</div>
+      <a href="../../contact/v1/index.html" class="btn btn-black">Start Your Project Today <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="alt" href="https://wa.me/919818886620" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.95L0 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer bg-black">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo-tile"><img src="../../assets/logo-white.png" alt="MV Design Studio"></div>
+        <p>Creating spaces that inspire, endure and enrich the way people live and work. Architecture and interior design studio, established 1996.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul><li><a href="../../about/v1/index.html">About Us</a></li><li><a href="../../services/v1/index.html">Services</a></li><li><a href="../../portfolio/v1/index.html">Portfolio</a></li><li><a href="../../testimonials/v1/index.html">Testimonials</a></li><li><a href="../../contact/v1/index.html">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>Our Services</h4>
+        <ul><li><a href="#architecture">Architecture Design</a></li><li><a href="#interiors">Interior Design</a></li><li><a href="#turnkey">Turnkey Execution</a></li><li><a href="#furniture">Furniture &amp; Décor</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact Us</h4>
+        <ul class="contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+919818886620">+91 98188 86620</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg><div><a href="mailto:info@mvdesignstudio.com">info@mvdesignstudio.com</a><em>Placeholder — domain to confirm</em></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Open 24 hours, 7 days a week</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div>Studio address<em>Placeholder — to be provided</em></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MV Design Studio. All rights reserved.</span>
+      <ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul>
+      <span class="credit">Website by <a href="https://webspidersolutions.com">Web Spider Solutions</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING ============ -->
+<div class="float">
+  <a href="https://wa.me/919818886620" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.95L0 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg></a>
+  <a href="tel:+919818886620" aria-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></a>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="star" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></defs></svg>
+
+<script src="../../assets/v1/v1.js"></script>
+</body>
+</html>
