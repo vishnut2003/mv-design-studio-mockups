@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MV Design Studio — Our Process (Mockup v1)</title>
+<meta name="description" content="Design mockup v1 of the MV Design Studio Our Process page, prepared by Web Spider Solutions for client review.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/v1/v1.css">
+<style>
+/* ============ PROCESS PAGE ONLY ============ */
+.proc-grid{display:grid;grid-template-columns:1fr 340px;gap:clamp(40px,6vw,90px);align-items:start}
+.proc-side{position:sticky;top:110px}
+.proc-side .card{background:var(--black);color:var(--white);padding:30px 30px 28px;border-radius:2px;position:relative}
+.proc-side .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--green)}
+.proc-side .card .lbl{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.proc-side .card ul li{display:flex;gap:10px;align-items:center;font-size:13.5px;padding:8px 0;border-bottom:1px solid var(--line-dark);color:rgba(255,255,255,.8)}
+.proc-side .card ul li:last-child{border:0}
+.proc-side .card .btn{width:100%;justify-content:center;margin-top:22px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px;font-size:12.5px;color:var(--grey)}
+.recv{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.recv .aud svg{color:var(--green)}
+@media (max-width:1100px){.proc-grid{grid-template-columns:1fr}.proc-side{position:static}}
+@media (max-width:900px){.recv{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="process">
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="container">
+    <a class="logo" href="../../home/v1/index.html"><img class="logo-light" src="../../assets/logo-white.png" alt="MV Design Studio"><img class="logo-dark" src="../../assets/logo-black.png" alt="MV Design Studio"></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="../../home/v1/index.html" data-page="home">Home</a>
+      <a href="../../about/v1/index.html" data-page="about">About</a>
+      <a href="../../services/v1/index.html" data-page="services">Services</a>
+      <a href="../../portfolio/v1/index.html" data-page="portfolio">Portfolio</a>
+      <a href="../../process/v1/index.html" data-page="process" class="active">Process</a>
+      <a href="../../blog/v1/index.html" data-page="blog">Blog</a>
+      <a href="../../contact/v1/index.html" data-page="contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="../../contact/v1/index.html" class="btn btn-nav">Get Consultation</a>
+      <button class="burger" type="button" aria-label="Menu" onclick="document.body.classList.toggle('nav-open');updateNav()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MOBILE SIDEBAR MENU ============ -->
+<div class="menu-backdrop" onclick="closeMenu()"></div>
+<aside class="mobile-menu" aria-label="Menu">
+  <div class="mm-head">
+    <img src="../../assets/logo-white.png" alt="MV Design Studio">
+    <button class="mm-close" type="button" aria-label="Close menu" onclick="closeMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
+  <div class="mm-eyebrow">Menu</div>
+  <nav class="mm-links">
+    <a href="../../home/v1/index.html" data-page="home"><span>01</span>Home</a>
+    <a href="../../about/v1/index.html" data-page="about"><span>02</span>About</a>
+    <a href="../../services/v1/index.html" data-page="services"><span>03</span>Services</a>
+    <a href="../../portfolio/v1/index.html" data-page="portfolio"><span>04</span>Portfolio</a>
+    <a href="../../process/v1/index.html" data-page="process"><span>05</span>Process</a>
+    <a href="../../blog/v1/index.html" data-page="blog"><span>06</span>Blog</a>
+    <a href="../../contact/v1/index.html" data-page="contact"><span>07</span>Contact</a>
+  </nav>
+  <a href="../../contact/v1/index.html" class="btn btn-white">Get Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</aside>
+
+<main id="top">
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="ph"><img src="../../assets/stock/drawings-review.jpg" alt="" onerror="this.remove()"></div>
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../home/v1/index.html">Home</a><span class="sep">/</span><span class="cur">Our Process</span></nav>
+    <div class="eyebrow">Our Process</div>
+    <h1>From first call <br>to <em>handover.</em></h1>
+    <p class="lead">Seven steps, two approval gates and audit checkpoints through construction. This page answers the questions clients ask before they call.</p>
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section class="section" id="steps">
+  <div class="container">
+    <div class="proc-grid">
+      <div>
+        <div class="sec-head reveal">
+          <div class="eyebrow">Step by Step</div>
+          <h2 class="h2">How a project runs</h2>
+          <p class="lead">The same path for every project, whether we are designing the building, the interior, or auditing someone else's work. Durations are placeholders and depend on the project and the authority.</p>
+          <div class="legend"><span class="badge-ck">Approval</span> authority sign-off required &nbsp; <span class="badge-ck">Audit checkpoint</span> principal inspects and reports</div>
+        </div>
+        <div class="timeline">
+      <div class="tl reveal"><div class="n">01</div><div><h3>First call &amp; brief</h3><p>A call within 24 hours, then a site visit. We listen to what you want to build, look at the plot or space, and agree a scope and fee.</p><div class="out"><b>You receive</b> · Written brief · fee proposal</div></div></div>
+      <div class="tl reveal"><div class="n">02</div><div><h3>Site visit &amp; feasibility</h3><p>We study the plot, the bye-laws and the budget to confirm what can be built and how much it should cost.</p><div class="out"><b>You receive</b> · Feasibility note · FAR and setback study</div></div></div>
+      <div class="tl reveal"><div class="n">03</div><div><h3>Concept design</h3><p>Layouts, massing and the look of the building or interior, refined with you over two or three rounds.</p><div class="out"><b>You receive</b> · Plans · 3D views · material direction</div></div></div>
+      <div class="tl reveal"><div class="n">04</div><div><h3>Design development &amp; approvals <span class="badge-ck">Approval</span></h3><p>Drawings are detailed and the sanction set is submitted. We follow the approval through until the project is cleared to build.</p><div class="out"><b>You receive</b> · Sanction drawings · approval</div></div></div>
+      <div class="tl reveal"><div class="n">05</div><div><h3>Working drawings &amp; tendering</h3><p>Structural, services and detail drawings, specifications and a BOQ that contractors can price. We help you compare bids.</p><div class="out"><b>You receive</b> · Working drawing set · BOQ · contractor recommendation</div></div></div>
+      <div class="tl reveal"><div class="n">06</div><div><h3>Execution with audit checkpoints <span class="badge-ck">Audit checkpoint</span></h3><p>The principal inspects the site at each stage, checks bills against the BOQ and issues a written report after every visit.</p><div class="out"><b>You receive</b> · Stage reports · verified bills · snag lists</div></div></div>
+      <div class="tl reveal"><div class="n">07</div><div><h3>Handover <span class="badge-ck">Audit checkpoint</span></h3><p>Completion documents, a final audit report and a walk-through. We stay on call for support after you move in.</p><div class="out"><b>You receive</b> · Completion certificate support · final audit report</div></div></div>
+        </div>
+      </div>
+      <aside class="proc-side reveal" data-delay="1">
+        <div class="card">
+          <div class="lbl">At a glance</div>
+          <ul>
+            <li>Design: 8–12 weeks <em style="font-style:normal;font-size:11px;color:rgba(255,255,255,.5)">(placeholder)</em></li>
+            <li>Approvals: authority dependent</li>
+            <li>Construction: 10–18 months</li>
+            <li>Site inspections: every stage</li>
+            <li>Reports: after every visit</li>
+            <li>Point of contact: the principal</li>
+          </ul>
+          <a href="../../contact/v1/index.html" class="btn btn-white">Start With a Call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT YOU RECEIVE ============ -->
+<section class="section bg-off" id="receive">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">What You Receive</div>
+      <h2 class="h2">Documents, not just drawings</h2>
+    </div>
+    <div class="recv">
+      <article class="aud reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 6v2m0 8v2"/></svg><h3>Costs you can trust</h3><p>A BOQ before tendering, bills verified against it during construction, and variations priced in writing.</p></article>
+      <article class="aud reveal" data-delay="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><h3>Reports you can act on</h3><p>A written report with photographs after every site inspection, with an action list and responsibilities.</p></article>
+      <article class="aud reveal" data-delay="2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg><h3>Compliance on record</h3><p>Sanction drawings, approval letters and a completion file kept in order from day one.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="faq-grid" style="display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,7vw,100px);align-items:start">
+      <div class="sec-head reveal" style="margin-bottom:0">
+        <div class="eyebrow">Before You Call</div>
+        <h2 class="h2">Questions clients ask first</h2>
+        <p class="lead">Answers are placeholder copy for layout review and will be confirmed with MV Design Studio.</p>
+        <a href="../../contact/v1/index.html" class="btn btn-black" style="margin-top:28px">Ask Us Anything <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="faq reveal" data-delay="1">
+        <details open>
+          <summary>How much does it cost to get started?<span class="ic"></span></summary>
+          <div class="ans">The first call and site visit are free. Fees are quoted after the brief, as a percentage of project cost or a lump sum per stage, and agreed before design begins. <em>(placeholder answer)</em></div>
+        </details>
+        <details>
+          <summary>Do I need a contractor before I come to you?<span class="ic"></span></summary>
+          <div class="ans">No. We design first, prepare a BOQ and then help you tender to contractors, or recommend ones we have worked with. <em>(placeholder answer)</em></div>
+        </details>
+        <details>
+          <summary>How long before I can start building?<span class="ic"></span></summary>
+          <div class="ans">Design takes eight to twelve weeks; approvals depend on the authority. We prepare a complete sanction submission to avoid avoidable rounds. <em>(placeholder answer)</em></div>
+        </details>
+        <details>
+          <summary>What if I already have drawings?<span class="ic"></span></summary>
+          <div class="ans">We review them as a project audit, flag issues and either take the project forward or support your existing team. <em>(placeholder answer)</em></div>
+        </details>
+        <details>
+          <summary>How involved do I need to be?<span class="ic"></span></summary>
+          <div class="ans">You approve each stage before the next begins. Between approvals, the principal runs the project and reports to you after every site visit. <em>(placeholder answer)</em></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+<style>@media (max-width:900px){#faq .faq-grid{grid-template-columns:1fr!important}}</style>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section bg-off" id="testimonials">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">Testimonials</div>
+      <h2 class="h2">Clients on the process</h2>
+      <p class="lead" style="margin:0 auto">All reviews shown are placeholders.</p>
+    </div>
+    <div class="testi-wrap">
+      <div class="testi-grid" id="testiGrid">
+        <div class="testi reveal"><div class="q">“</div><div class="stars"><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg></div><p>“The drawings we approved were exactly what got built. Having the architect also audit the site meant nothing slipped between design and execution.” <em>(placeholder review)</em></p><div class="who"><div class="av">R</div><div><b>Mr. Rahul Mehta</b><span>Courtyard House · Chhatarpur</span></div></div></div>
+        <div class="testi reveal" data-delay="1"><div class="q">“</div><div class="stars"><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg><svg viewBox="0 0 24 24"><use href="#star"/></svg></div><p>“We hired MV Design Studio only for the audit of a villa our contractor was building. Their stage reports caught issues early and saved us real money.” <em>(placeholder review)</em></p><div class="who"><div class="av">N</div><div><b>Ms. Nidhi Kapoor</b><span>Villa Audit · Gurugram</span></div></div></div>
+        <a href="#" onclick="showToast('Placeholder — video testimonial will play here once the client shares a recording.');return false" class="testi video reveal" data-delay="2"><div class="ph"><img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><div class="cap"><b>Mr. Arjun Saxena</b><span>Video testimonial · Placeholder</span></div></a>
+      </div>
+      <div class="testi-nav">
+        <button type="button" aria-label="Previous" onclick="slideTesti(-1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+        <button type="button" aria-label="Next" onclick="slideTesti(1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<section class="cta-band">
+  <div class="bg" aria-hidden="true"><img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=2000&q=80" alt="" onerror="this.remove()"></div>
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">Let's Talk</div>
+      <h2>Ready to take <em>the first step?</em></h2>
+      <p class="lead">Tell us about your plot, home or site. We will come back within 24 hours with a free consultation and a clear next step.</p>
+      <ul class="trust">
+        <li>Free consultation</li>
+        <li>24-hour response</li>
+        <li>Architect and auditor in one</li>
+      </ul>
+    </div>
+    <div class="cta-card reveal" data-delay="1">
+      <div class="lbl">Speak to the principal architect</div>
+      <a class="phone" href="tel:+919818886620">+91 98188 86620</a>
+      <div class="hrs">Open 24 hours, 7 days a week</div>
+      <a href="../../contact/v1/index.html" class="btn btn-black">Start With a Call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="alt" href="https://wa.me/919818886620" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.95L0 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer bg-black">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo-tile"><img src="../../assets/logo-white.png" alt="MV Design Studio"></div>
+        <p>An architecture practice whose principal is both the architect and the auditor on every project. Architecture, interiors and project audit, established 1996.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul><li><a href="../../about/v1/index.html">About the Studio</a></li><li><a href="../../principal/v1/index.html">Principal Architect</a></li><li><a href="../../services/v1/index.html">Services</a></li><li><a href="../../portfolio/v1/index.html">Portfolio</a></li><li><a href="../../process/v1/index.html">Our Process</a></li><li><a href="../../blog/v1/index.html">Blog</a></li><li><a href="../../contact/v1/index.html">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>Our Services</h4>
+        <ul><li><a href="../../architecture-design/v1/index.html">Architecture Design</a></li><li><a href="../../interior-design/v1/index.html">Interior Design</a></li><li><a href="../../project-audit/v1/index.html">Project Audit &amp; Consultancy</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact Us</h4>
+        <ul class="contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+919818886620">+91 98188 86620</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg><div><a href="mailto:info@mvdesignstudio.com">info@mvdesignstudio.com</a><em>Placeholder — domain to confirm</em></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Open 24 hours, 7 days a week</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div>Studio address<em>Placeholder — to be provided</em></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MV Design Studio. All rights reserved.</span>
+      <ul><li><a href="#" onclick="showToast('Privacy Policy, Terms, 404 and Thank-you pages are included in the build phase.');return false">Privacy Policy</a></li><li><a href="#" onclick="showToast('Privacy Policy, Terms, 404 and Thank-you pages are included in the build phase.');return false">Terms of Service</a></li></ul>
+      <span class="credit">Website by <a href="https://webspidersolutions.com">Web Spider Solutions</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING ============ -->
+<div class="float">
+  <a href="https://wa.me/919818886620" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.95L0 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg></a>
+  <a href="tel:+919818886620" aria-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></a>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="star" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></defs></svg>
+
+<script src="../../assets/v1/v1.js"></script>
+</body>
+</html>

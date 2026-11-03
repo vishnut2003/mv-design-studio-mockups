@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MV Design Studio — Project Detail (Mockup v1)</title>
+<meta name="description" content="Design mockup v1 of the MV Design Studio Project Detail page, prepared by Web Spider Solutions for client review.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/v1/v1.css">
+<style>
+/* ============ PROJECT DETAIL ONLY ============ */
+.page-hero.project{min-height:70vh;min-height:70svh}
+.page-hero .pmeta{display:flex;gap:28px;flex-wrap:wrap;margin-top:22px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.page-hero .pmeta b{color:var(--green);font-weight:600}
+.brief-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,7vw,100px);align-items:start}
+.brief-grid p{font-size:15.5px;color:#333;font-weight:300;margin-bottom:18px}
+.brief-grid .sec-head{position:sticky;top:110px;margin-bottom:0}
+.scope{display:grid;gap:0;border-top:1px solid var(--line);margin-top:28px}
+.scope li{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.scope li span{color:var(--grey);font-weight:300}
+.ck-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.ck{padding:26px 24px;border:1px solid var(--line-dark);border-radius:2px;position:relative}
+.ck .badge-ck{margin-bottom:16px}
+.ck h4{font-size:15.5px;font-weight:600;margin-bottom:6px;color:var(--white)}
+.ck p{font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.62);font-weight:300}
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:clamp(48px,6vw,80px);padding-top:clamp(32px,4vw,48px);border-top:1px solid var(--line)}
+.pn a{display:flex;flex-direction:column;gap:6px;padding:22px 24px;border:1px solid var(--line);border-radius:2px;transition:transform .4s var(--ease),box-shadow .4s}
+.pn a:hover{transform:translateY(-4px);box-shadow:0 24px 50px rgba(0,0,0,.07)}
+.pn a span{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+.pn a b{font-family:var(--font-head);font-size:24px;font-weight:400}
+.pn a.next{text-align:right;align-items:flex-end}
+.template-note{display:inline-flex;align-items:center;gap:10px;font-size:12px;color:var(--grey);margin-bottom:24px}
+.template-note::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green)}
+@media (max-width:1100px){.ck-strip{grid-template-columns:1fr 1fr}}
+@media (max-width:900px){.brief-grid{grid-template-columns:1fr}.brief-grid .sec-head{position:static}.pn{grid-template-columns:1fr}.pn a.next{text-align:left;align-items:flex-start}}
+@media (max-width:600px){.ck-strip{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="portfolio">
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="container">
+    <a class="logo" href="../../home/v1/index.html"><img class="logo-light" src="../../assets/logo-white.png" alt="MV Design Studio"><img class="logo-dark" src="../../assets/logo-black.png" alt="MV Design Studio"></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="../../home/v1/index.html" data-page="home">Home</a>
+      <a href="../../about/v1/index.html" data-page="about">About</a>
+      <a href="../../services/v1/index.html" data-page="services">Services</a>
+      <a href="../../portfolio/v1/index.html" data-page="portfolio" class="active">Portfolio</a>
+      <a href="../../process/v1/index.html" data-page="process">Process</a>
+      <a href="../../blog/v1/index.html" data-page="blog">Blog</a>
+      <a href="../../contact/v1/index.html" data-page="contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="../../contact/v1/index.html" class="btn btn-nav">Get Consultation</a>
+      <button class="burger" type="button" aria-label="Menu" onclick="document.body.classList.toggle('nav-open');updateNav()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MOBILE SIDEBAR MENU ============ -->
+<div class="menu-backdrop" onclick="closeMenu()"></div>
+<aside class="mobile-menu" aria-label="Menu">
+  <div class="mm-head">
+    <img src="../../assets/logo-white.png" alt="MV Design Studio">
+    <button class="mm-close" type="button" aria-label="Close menu" onclick="closeMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
+  <div class="mm-eyebrow">Menu</div>
+  <nav class="mm-links">
+    <a href="../../home/v1/index.html" data-page="home"><span>01</span>Home</a>
+    <a href="../../about/v1/index.html" data-page="about"><span>02</span>About</a>
+    <a href="../../services/v1/index.html" data-page="services"><span>03</span>Services</a>
+    <a href="../../portfolio/v1/index.html" data-page="portfolio"><span>04</span>Portfolio</a>
+    <a href="../../process/v1/index.html" data-page="process"><span>05</span>Process</a>
+    <a href="../../blog/v1/index.html" data-page="blog"><span>06</span>Blog</a>
+    <a href="../../contact/v1/index.html" data-page="contact"><span>07</span>Contact</a>
+  </nav>
+  <a href="../../contact/v1/index.html" class="btn btn-white">Get Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</aside>
+
+<main id="top">
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero project">
+  <div class="ph"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=80" alt="" onerror="this.remove()"></div>
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../home/v1/index.html">Home</a><span class="sep">/</span><a href="../../portfolio/v1/index.html">Portfolio</a><span class="sep">/</span><span class="cur">Courtyard House</span></nav>
+    <div class="eyebrow">Architecture · Chhatarpur, New Delhi</div>
+    <h1>Courtyard House</h1>
+    <p class="lead">A contemporary farmhouse planned around a central landscaped courtyard. Designed, approved and audited on site by the principal.</p>
+    <div class="pmeta"><div><b>Plot</b> 1,000 sq yd</div><div><b>Year</b> 2024</div><div><b>Scope</b> Architecture + interiors</div><div><b>Status</b> Completed</div></div>
+  </div>
+</section>
+
+<!-- ============ SPECS ============ -->
+<section class="section" id="specs" style="padding-top:clamp(32px,4vw,48px);padding-bottom:0">
+  <div class="container">
+    <div class="template-note reveal">Project Detail template. One layout used for every project; names, figures and photographs are placeholders.</div>
+    <div class="spec-bar reveal">
+      <div class="spec"><div class="lbl">Plot size</div><div class="val">1,000 sq yd</div></div>
+      <div class="spec"><div class="lbl">Location</div><div class="val">Chhatarpur, New Delhi</div></div>
+      <div class="spec"><div class="lbl">Year</div><div class="val">2024</div></div>
+      <div class="spec"><div class="lbl">Scope</div><div class="val">G+1 <small>+ basement</small></div></div>
+      <div class="spec"><div class="lbl">Service</div><div class="val">Architecture</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BRIEF ============ -->
+<section class="section" id="brief">
+  <div class="container">
+    <div class="brief-grid">
+      <div class="sec-head reveal">
+        <div class="eyebrow">The Brief</div>
+        <h2 class="h2">A house around a courtyard.</h2>
+        <ul class="scope">
+          <li>Built-up area <span>6,800 sq ft · placeholder</span></li>
+          <li>Programme <span>4 bedrooms, study, pool, staff block</span></li>
+          <li>Structure <span>RCC frame, exposed brick infill</span></li>
+          <li>Approvals <span>Sanctioned 2022 · completion 2024</span></li>
+          <li>Audit <span>14 stage inspections · 0 open snags</span></li>
+        </ul>
+      </div>
+      <div class="reveal" data-delay="1">
+        <p>The clients wanted a weekend home that felt open to the garden but private from the road. The plan wraps the living spaces around a central landscaped courtyard, so every room borrows light and a view from the centre of the house rather than from the boundary. <em style="font-style:normal;font-size:12px;color:#999">(placeholder brief)</em></p>
+        <p>Deep verandahs on the south and west cut the summer sun, while the courtyard pulls cooler air through the house. Exposed brick, lime plaster and local stone were chosen for their ageing as much as for their look.</p>
+        <p>The principal prepared the sanction and working drawings, then inspected the site at fourteen stages from foundation to finishes. Contractor bills were verified against the BOQ before each payment, and the house was handed over with no open snags.</p>
+        <div class="about-actions"><a href="../../contact/v1/index.html" class="btn btn-black">Start a Similar Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><a href="../../architecture-design/v1/index.html" class="link">Architecture Design service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="section bg-off" id="gallery">
+  <div class="container">
+    <div class="sec-head split reveal">
+      <div>
+        <div class="eyebrow">Gallery</div>
+        <h2 class="h2">The finished house</h2>
+      </div>
+      <span class="template-note" style="margin:0">Placeholder images · client photography to follow</span>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="ph wide"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=80" alt="" onerror="this.remove()"></div>
+      <div class="ph"><img src="../../assets/stock/architecture-villa-dusk.jpg" alt="" onerror="this.remove()"></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div>
+      <div class="ph"><img src="../../assets/stock/drawings-on-marble.jpg" alt="" onerror="this.remove()"></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div>
+      <div class="ph"><img src="../../assets/stock/site-plastering.jpg" alt="" onerror="this.remove()"></div>
+      <div class="ph wide"><img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=1400&q=80" alt="" onerror="this.remove()"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AUDIT CHECKPOINTS ============ -->
+<section class="section bg-black" id="checkpoints">
+  <div class="container">
+    <div class="sec-head split reveal">
+      <div>
+        <div class="eyebrow">Audit Checkpoints</div>
+        <h2 class="h2">Checked at every stage</h2>
+        <p class="lead" style="color:rgba(255,255,255,.72)">Each inspection ended in a written report with photographs and an action list. Figures are placeholders.</p>
+      </div>
+      <a href="../../process/v1/index.html" class="link" style="color:var(--white)">How our process works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="ck-strip">
+      <div class="ck reveal"><span class="badge-ck dark">Stage 1–3</span><h4>Foundation &amp; structure</h4><p>Setting out, reinforcement and concrete checked before every pour.</p></div>
+      <div class="ck reveal" data-delay="1"><span class="badge-ck dark">Stage 4–7</span><h4>Masonry &amp; services</h4><p>Walls, plumbing, electrical and HVAC verified against drawings before closing.</p></div>
+      <div class="ck reveal" data-delay="2"><span class="badge-ck dark">Stage 8–12</span><h4>Finishes</h4><p>Waterproofing, flooring, joinery and paint inspected and snagged.</p></div>
+      <div class="ck reveal" data-delay="3"><span class="badge-ck dark">Stage 13–14</span><h4>Completion</h4><p>Final bill verification, compliance statement and handover.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ START SIMILAR + NAV ============ -->
+<section class="section" id="more">
+  <div class="container">
+    <div class="sec-head split reveal">
+      <div>
+        <div class="eyebrow">More Projects</div>
+        <h2 class="h2">Related work</h2>
+      </div>
+      <a href="../../portfolio/v1/index.html" class="link">Back to Portfolio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="folio-grid no-stagger">
+      <a href="../../project/v1/index.html" class="folio reveal" data-cat="architecture"><div class="ph"><span class="tag">Architecture</span><span class="tag year">2021</span><img src="../../assets/stock/architecture-villa-dusk.jpg" alt="" onerror="this.remove()"></div><div class="meta"><b>Architecture</b> • Faridabad • 500 sq yd</div><h3>Terrace House</h3><p>A stepped family residence with layered terraces facing the Aravalli ridge.</p></a>
+      <a href="../../project/v1/index.html" class="folio reveal" data-cat="architecture" data-delay="1"><div class="ph"><span class="tag">Architecture</span><span class="tag year">2021</span><img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Architecture</b> • Gurugram • 800 sq yd</div><h3>Ridge Villa</h3><p>A weekend home on a sloping plot, designed and supervised from foundation to finish.</p></a>
+      <a href="../../project/v1/index.html" class="folio reveal" data-cat="architecture" data-delay="2"><div class="ph"><span class="tag">Architecture</span><span class="tag year">2022</span><img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=900&q=80" alt="" onerror="this.remove()"></div><div class="meta"><b>Architecture</b> • Noida • 1,200 sq yd</div><h3>Atrium Clinic</h3><p>A daylit healthcare building planned around a planted atrium.</p></a>
+    </div>
+    <div class="pn reveal">
+      <a href="../../project/v1/index.html" class="prev"><span>Previous project</span><b>School Block Audit</b></a>
+      <a href="../../project/v1/index.html" class="next"><span>Next project</span><b>The Verdant Residence</b></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<section class="cta-band">
+  <div class="bg" aria-hidden="true"><img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=2000&q=80" alt="" onerror="this.remove()"></div>
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">Let's Talk</div>
+      <h2>Start a <em>similar project.</em></h2>
+      <p class="lead">Tell us about your plot and what you want to build. We will come back within 24 hours with a free consultation and a clear next step.</p>
+      <ul class="trust">
+        <li>Free consultation</li>
+        <li>24-hour response</li>
+        <li>Architect and auditor in one</li>
+      </ul>
+    </div>
+    <div class="cta-card reveal" data-delay="1">
+      <div class="lbl">Speak to the principal architect</div>
+      <a class="phone" href="tel:+919818886620">+91 98188 86620</a>
+      <div class="hrs">Open 24 hours, 7 days a week</div>
+      <a href="../../contact/v1/index.html" class="btn btn-black">Start a Similar Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="alt" href="https://wa.me/919818886620" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.95L0 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer bg-black">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo-tile"><img src="../../assets/logo-white.png" alt="MV Design Studio"></div>
+        <p>An architecture practice whose principal is both the architect and the auditor on every project. Architecture, interiors and project audit, established 1996.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul><li><a href="../../about/v1/index.html">About the Studio</a></li><li><a href="../../principal/v1/index.html">Principal Architect</a></li><li><a href="../../services/v1/index.html">Services</a></li><li><a href="../../portfolio/v1/index.html">Portfolio</a></li><li><a href="../../process/v1/index.html">Our Process</a></li><li><a href="../../blog/v1/index.html">Blog</a></li><li><a href="../../contact/v1/index.html">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>Our Services</h4>
+        <ul><li><a href="../../architecture-design/v1/index.html">Architecture Design</a></li><li><a href="../../interior-design/v1/index.html">Interior Design</a></li><li><a href="../../project-audit/v1/index.html">Project Audit &amp; Consultancy</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact Us</h4>
+        <ul class="contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+919818886620">+91 98188 86620</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg><div><a href="mailto:info@mvdesignstudio.com">info@mvdesignstudio.com</a><em>Placeholder — domain to confirm</em></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Open 24 hours, 7 days a week</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div>Studio address<em>Placeholder — to be provided</em></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MV Design Studio. All rights reserved.</span>
+      <ul><li><a href="#" onclick="showToast('Privacy Policy, Terms, 404 and Thank-you pages are included in the build phase.');return false">Privacy Policy</a></li><li><a href="#" onclick="showToast('Privacy Policy, Terms, 404 and Thank-you pages are included in the build phase.');return false">Terms of Service</a></li></ul>
+      <span class="credit">Website by <a href="https://webspidersolutions.com">Web Spider Solutions</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING ============ -->
+<div class="float">
+  <a href="https://wa.me/919818886620" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.95L0 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg></a>
+  <a href="tel:+919818886620" aria-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></a>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="star" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></defs></svg>
+
+<script src="../../assets/v1/v1.js"></script>
+</body>
+</html>
